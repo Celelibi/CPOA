@@ -7,7 +7,7 @@ INCLUDEPATH += ../vectorMatrix
 
 SOURCES += *.cpp
 
-HEADERS += *.h *.hpp
+HEADERS += *.h #*.hpp
 
 DESTDIR = ../lib
 

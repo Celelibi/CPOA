@@ -5,8 +5,8 @@ CONFIG += staticlib
 
 INCLUDEPATH += ../vectorMatrix ../image
 
-SOURCES += *.cpp
+SOURCES += #*.cpp
 
-HEADERS += *.h
+HEADERS += #*.h
 
 DESTDIR = ../lib

@@ -5,9 +5,9 @@ CONFIG += staticlib
 
 #INCLUDEPATH +=
 
-SOURCES += *.cpp
+SOURCES += #*.cpp
 
-HEADERS += *.h *.hpp
+HEADERS += *.h #*.hpp
 
 DESTDIR = ../lib
 
