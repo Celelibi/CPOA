@@ -18,9 +18,9 @@ protected:
 public:
 	// Constructeurs
 	CsgRegularPolygon();
-	CsgRegularPolygon(string, CsgNode*);
-	CsgRegularPolygon(string, CsgNode*, Matrix33f, float);
-	CsgRegularPolygon(string, CsgNode*, Matrix33f, float, int);
+	CsgRegularPolygon(std::string, CsgNode*);
+	CsgRegularPolygon(std::string, CsgNode*, Matrix33f, float);
+	CsgRegularPolygon(std::string, CsgNode*, Matrix33f, float, int);
 	CsgRegularPolygon(const CsgRegularPolygon&);
 	~CsgRegularPolygon();
 

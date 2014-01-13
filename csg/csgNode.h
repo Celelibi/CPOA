@@ -3,8 +3,6 @@
 
 #include <string>
 
-using namespace std;
-
 class CsgNode
 {
 private:
@@ -12,23 +10,23 @@ private:
 
 protected:
 	// Attributs
-	string m_label;
+	std::string m_label;
 	const int m_id;
 	CsgNode* m_parent;
 
 public:
 	// Constructeurs
 	CsgNode();
-	CsgNode(string, CsgNode*);
+	CsgNode(std::string, CsgNode*);
 	CsgNode(const CsgNode&);
 	~CsgNode();
 
 	// Getters & Setters
-	string getLabel();
+	std::string getLabel();
 	int getId();
 	CsgNode* getParent();
 
-	void setLabel(string);
+	void setLabel(std::string);
 	void setParent(CsgNode*);
 };
 

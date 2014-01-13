@@ -17,9 +17,9 @@ private:
 public:
 	// Constructeurs
 	CsgDisk();
-	CsgDisk(string, CsgNode *);
-	CsgDisk(string, CsgNode*, Matrix33f, float);
-	CsgDisk(string, CsgNode *, Matrix33f, float, float, float);
+	CsgDisk(std::string, CsgNode *);
+	CsgDisk(std::string, CsgNode*, Matrix33f, float);
+	CsgDisk(std::string, CsgNode *, Matrix33f, float, float, float);
 	CsgDisk(const CsgDisk&);
 	~CsgDisk();
 };

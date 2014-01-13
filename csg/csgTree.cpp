@@ -1,5 +1,5 @@
 #include <iostream>
-#include <sstream>
+#include <string>
 
 #include "csgNode.h"
 #include "csgOperation.h"

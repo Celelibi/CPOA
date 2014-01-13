@@ -1,6 +1,8 @@
 #ifndef CSGPRIMITIVE_H
 #define CSGPRIMITIVE_H
 
+#include <string>
+
 #include "csgNode.h"
 #include "matrix33f.h"
 
@@ -14,8 +16,8 @@ protected:
 public:
 	// Constructeurs
 	CsgPrimitive();
-	CsgPrimitive(string, CsgNode*);
-	CsgPrimitive(string, CsgNode*, Matrix33f, float);
+	CsgPrimitive(std::string, CsgNode*);
+	CsgPrimitive(std::string, CsgNode*, Matrix33f, float);
 	CsgPrimitive(const CsgPrimitive&);
 	~CsgPrimitive();
 

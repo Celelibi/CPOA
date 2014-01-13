@@ -2,6 +2,7 @@
 #define CSGTREE_H
 
 #include <iostream>
+#include <string>
 #include <set>
 #include <map>
 
@@ -26,9 +27,9 @@ public:
 
 	// Autres fonctions
 	void addPrimitive(CsgPrimitive*);
-	void joinPrimitives(string, CsgOperationType, CsgNode*, CsgNode*);
-	CsgNode* nodeFromLabel(string);
-	string labelFromNode(CsgNode*);
+	void joinPrimitives(std::string, CsgOperationType, CsgNode*, CsgNode*);
+	CsgNode* nodeFromLabel(std::string);
+	std::string labelFromNode(CsgNode*);
 	void printTree();
 };
 

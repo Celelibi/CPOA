@@ -1,6 +1,8 @@
 #ifndef CSGOPERATION_H
 #define CSGOPERATION_H
 
+#include <string>
+
 #include "csgNode.h"
 
 enum CsgOperationType { INTERSECT, UNION, DIFF };
@@ -16,8 +18,9 @@ protected:
 public:
 	// Constructeurs
 	CsgOperation();
-	CsgOperation(string, CsgNode*);
-	CsgOperation(string, CsgNode*, CsgOperationType, CsgNode*, CsgNode*);
+	CsgOperation(std::string, CsgNode*);
+	CsgOperation(std::string, CsgNode*, CsgOperationType, CsgNode*,
+	             CsgNode*);
 	CsgOperation(const CsgOperation&);
 
 	// Getters & Setters
