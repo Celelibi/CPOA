@@ -1,6 +1,7 @@
-#include "csgTree.h"
 #include <iostream>
 #include <sstream>
+
+#include "csgTree.h"
 
 using namespace std;
 

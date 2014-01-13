@@ -1,12 +1,12 @@
 #ifndef CSGTREE_H
 #define CSGTREE_H
 
+#include <iostream>
+#include <set>
+
 #include "csgNode.h"
 #include "csgOperation.h"
 #include "csgPrimitive.h"
-
-#include <iostream>
-#include <set>
 
 class CsgTree
 {
