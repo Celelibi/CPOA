@@ -2,6 +2,7 @@
 #include <string>
 
 #include "csgOperation.h"
+#include "boundingBox.h"
 #include "csgNode.h"
 
 using namespace std;
@@ -36,7 +37,7 @@ CsgOperation::CsgOperation(const CsgOperation& copy)
 }
 
 // Destructeur
-CsgNode::~CsgNode()
+CsgOperation::~CsgOperation()
 {
 	cout << "Destroyed CsgOperation nb" << m_id << " label " << m_label << endl;
 }

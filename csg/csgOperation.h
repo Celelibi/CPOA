@@ -23,6 +23,7 @@ public:
 	CsgOperation(std::string, CsgNode*, CsgOperationType, CsgNode*,
 	             CsgNode*);
 	CsgOperation(const CsgOperation&);
+	virtual ~CsgOperation();
 
 	// Getters & Setters
 	virtual CsgOperationType getType();
