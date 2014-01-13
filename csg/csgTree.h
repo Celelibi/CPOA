@@ -17,9 +17,9 @@ private:
 	typedef std::map<std::string, CsgNode*> label_map_t;
 
 	// Attributs
-	std::set<CsgNode*> roots;
-	std::set<CsgNode*> leaves;
-	label_map_t label_map;
+	std::set<CsgNode*> m_roots;
+	std::set<CsgNode*> m_leaves;
+	label_map_t m_label_map;
 
 public:
 	// Constructeurs

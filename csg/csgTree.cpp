@@ -18,12 +18,12 @@ void CsgTree::addPrimitive(CsgPrimitive* primitive)
 {
 	string label(primitive->getLabel());
 	primitive->setParent(NULL);
-	leaves.insert(primitive);
+	m_leaves.insert(primitive);
 
 	if (nodeFromLabel(label) != NULL)
 		throw "A node with this name already exists";
 	else
-		label_map[label] = primitive;
+		m_label_map[label] = primitive;
 }
 
 void CsgTree::joinPrimitives(string label, CsgOperationType optype,
@@ -36,26 +36,26 @@ void CsgTree::joinPrimitives(string label, CsgOperationType optype,
 	if (nodeFromLabel(label) != NULL)
 		throw "A node with this name already exists";
 	else
-		label_map[label] = operation;
+		m_label_map[label] = operation;
 
 	node1->setParent(operation);
 	node2->setParent(operation);
 
 	// erase ne fait rien s'il l'élément n'existe pas.
-	roots.erase(node1);
-	roots.erase(node2);
-	leaves.erase(node1);
-	leaves.erase(node2);
+	m_roots.erase(node1);
+	m_roots.erase(node2);
+	m_leaves.erase(node1);
+	m_leaves.erase(node2);
 
-	roots.insert(operation);
+	m_roots.insert(operation);
 }
 
 CsgNode* CsgTree::nodeFromLabel(string label)
 {
 	label_map_t::iterator it;
-	it = label_map.find(label);
+	it = m_label_map.find(label);
 
-	if (it == label_map.end())
+	if (it == m_label_map.end())
 		return NULL;
 	else
 		return it->second;
@@ -70,7 +70,7 @@ void CsgTree::printTree()
 {
 	std::set<CsgNode*>::iterator it;
 
-	for(it = roots.begin() ; it != roots.end() ; it++)
+	for(it = m_roots.begin() ; it != m_roots.end() ; it++)
 	{
 		cout << "Racine" << endl << "label : " << (*it)->getLabel() << endl << "id : " << (*it)->getId() << endl;
 		if((*it)->getParent() != NULL){
@@ -78,7 +78,7 @@ void CsgTree::printTree()
 		}
 		cout << endl;
 	}
-	for(it = leaves.begin() ; it != leaves.end() ; it++)
+	for(it = m_leaves.begin() ; it != m_leaves.end() ; it++)
 	{
 		cout << "Feuille" << endl << "label : " << (*it)->getLabel() << endl << "id : " << (*it)->getId() << endl;
 		if((*it)->getParent() != NULL){
