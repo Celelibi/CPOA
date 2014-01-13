@@ -26,15 +26,15 @@ CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent)
 	cout << " label " << m_label << endl;
 }
 
-CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent, Matrix33f matrix, float diameter)
-: CsgPrimitive(label, parent, matrix, diameter), m_nbVertices(0), m_vertices(NULL)
+CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent, Matrix33f matrix)
+: CsgPrimitive(label, parent, matrix), m_nbVertices(0), m_vertices(NULL)
 {
 	cout << "Created CsgRegularPolygon nb" << m_id;
 	cout << " label " << m_label << endl;
 }
 
-CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent, Matrix33f matrix, float diameter, int nbVertices)
-: CsgPrimitive(label, parent, matrix, diameter), m_nbVertices(nbVertices), m_vertices(NULL)
+CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent, Matrix33f matrix, int nbVertices)
+: CsgPrimitive(label, parent, matrix), m_nbVertices(nbVertices), m_vertices(NULL)
 {
 	genVertices();
 	cout << "Created CsgRegularPolygon nb" << m_id;

@@ -22,8 +22,8 @@ public:
 	// Constructeurs
 	CsgRegularPolygon();
 	CsgRegularPolygon(std::string, CsgNode*);
-	CsgRegularPolygon(std::string, CsgNode*, Matrix33f, float);
-	CsgRegularPolygon(std::string, CsgNode*, Matrix33f, float, int);
+	CsgRegularPolygon(std::string, CsgNode*, Matrix33f);
+	CsgRegularPolygon(std::string, CsgNode*, Matrix33f, int);
 	CsgRegularPolygon(const CsgRegularPolygon&);
 	virtual ~CsgRegularPolygon();
 

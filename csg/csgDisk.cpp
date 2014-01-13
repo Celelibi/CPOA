@@ -23,14 +23,8 @@ CsgDisk::CsgDisk(string label, CsgNode* parent)
 	cout << "Created CsgDisk nb" << m_id << " label " << m_label << endl;
 }
 
-CsgDisk::CsgDisk(string label, CsgNode* parent, Matrix33f matrix, float diameter)
-: CsgPrimitive(label, parent, matrix, diameter)
-{
-	cout << "Created CsgDisk nb" << m_id << " label " << m_label << endl;
-}
-
-CsgDisk::CsgDisk(string label, CsgNode* parent, Matrix33f matrix, float diameter, float x, float y)
-: CsgPrimitive(label, parent, matrix, diameter), m_center(x, y, 1)
+CsgDisk::CsgDisk(string label, CsgNode* parent, Matrix33f matrix)
+: CsgPrimitive(label, parent, matrix)
 {
 	cout << "Created CsgDisk nb" << m_id << " label " << m_label << endl;
 }

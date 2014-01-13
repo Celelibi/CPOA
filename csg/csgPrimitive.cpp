@@ -20,8 +20,8 @@ CsgPrimitive::CsgPrimitive(string label, CsgNode* parent)
 	cout << " label " << m_label << endl;
 }
 
-CsgPrimitive::CsgPrimitive(string label, CsgNode* parent, Matrix33f matrix, float diameter)
-: CsgNode(label, parent), m_matrix(matrix), m_diameter(diameter)
+CsgPrimitive::CsgPrimitive(string label, CsgNode* parent, Matrix33f matrix)
+: CsgNode(label, parent), m_matrix(matrix)
 {
 	cout << "Created CsgPrimitive nb" << m_id;
 	cout << " label " << m_label << endl;

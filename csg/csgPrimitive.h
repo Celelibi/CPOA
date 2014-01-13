@@ -12,13 +12,12 @@ class CsgPrimitive : public CsgNode
 protected:
 	// Attributs
 	Matrix33f m_matrix;
-	float m_diameter;
 
 public:
 	// Constructeurs
 	CsgPrimitive();
 	CsgPrimitive(std::string, CsgNode*);
-	CsgPrimitive(std::string, CsgNode*, Matrix33f, float);
+	CsgPrimitive(std::string, CsgNode*, Matrix33f);
 	CsgPrimitive(const CsgPrimitive&);
 	virtual ~CsgPrimitive();
 
