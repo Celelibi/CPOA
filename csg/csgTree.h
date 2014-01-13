@@ -14,7 +14,6 @@ private:
 	// Attributs
 	std::set<CsgNode*> roots;
 	std::set<CsgNode*> leaves;
-	std::set<CsgNode*>::iterator it;
 
 public:
 	// Constructeurs
@@ -22,7 +21,7 @@ public:
 
 	// Autres fonctions
 	void addPrimitive(CsgPrimitive*);
-	void joinPrimitive(CsgNode*, CsgNode*, CsgOperation*);
+	void joinPrimitives(string, CsgOperationType, CsgNode*, CsgNode*);
 	void printTree();
 };
 

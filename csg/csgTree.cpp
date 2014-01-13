@@ -1,6 +1,9 @@
 #include <iostream>
 #include <sstream>
 
+#include "csgNode.h"
+#include "csgOperation.h"
+#include "csgPrimitive.h"
 #include "csgTree.h"
 
 using namespace std;
@@ -17,25 +20,23 @@ void CsgTree::addPrimitive(CsgPrimitive* primitive)
 	leaves.insert(primitive);
 }
 
-void CsgTree::joinPrimitive(CsgNode* primitive1, CsgNode* primitive2, CsgOperation* operation)
+void CsgTree::joinPrimitives(string label, CsgOperationType optype,
+                             CsgNode* node1, CsgNode* node2)
 {
-	operation->setLeft(primitive1);
-	operation->setRight(primitive2);
+	CsgOperation *operation;
 
-	it = roots.find(primitive1->getParent());
-	if(it != roots.end())
-	{
-		roots.erase(it);
-	}
+	operation = new CsgOperation(label, NULL, optype, node1, node2);
 
-	it = roots.find(primitive2->getParent());
-	if(it != roots.end())
-	{
-		roots.erase(it);
-	}
+	node1->setParent(operation);
+	node2->setParent(operation);
 
-	primitive1->setParent(operation);
-	primitive2->setParent(operation);
+	// erase ne fait rien s'il l'élément n'existe pas.
+	roots.erase(node1);
+	roots.erase(node2);
+	leaves.erase(node1);
+	leaves.erase(node2);
+
+	roots.insert(operation);
 }
 
 void CsgTree::printTree()
