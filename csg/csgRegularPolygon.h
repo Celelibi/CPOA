@@ -10,25 +10,25 @@
 
 class CsgRegularPolygon : public CsgPrimitive
 {
-	protected:
-    // Attributs
-    int m_nbSommets;
-     Vec3f* m_sommets;
-		
-	public:
-    // Constructeurs
-    CsgRegularPolygon();
-    CsgRegularPolygon(string, int, CsgNode*);
-    CsgRegularPolygon(string, int, CsgNode*, Matrix33f, float);
-    CsgRegularPolygon(string, int, CsgNode*, Matrix33f, float, int);
-    CsgRegularPolygon(const CsgRegularPolygon&);
-    ~CsgRegularPolygon();
-		
-    // Getters & Setters
-    int getNbSommets();
-    Vec3f* getSommets();
-    void setNbSommets(int);
-    void setSommets(Vec3f*);
+protected:
+	// Attributs
+	int m_nbSommets;
+	Vec3f* m_sommets;
+
+public:
+	// Constructeurs
+	CsgRegularPolygon();
+	CsgRegularPolygon(string, int, CsgNode*);
+	CsgRegularPolygon(string, int, CsgNode*, Matrix33f, float);
+	CsgRegularPolygon(string, int, CsgNode*, Matrix33f, float, int);
+	CsgRegularPolygon(const CsgRegularPolygon&);
+	~CsgRegularPolygon();
+
+	// Getters & Setters
+	int getNbSommets();
+	Vec3f* getSommets();
+	void setNbSommets(int);
+	void setSommets(Vec3f*);
 };
 
 #endif // CSGREGULARPOLYGON_H
