@@ -16,6 +16,8 @@ protected:
 	int m_nbSommets;
 	Vec3f* m_sommets;
 
+	void genSommets();
+
 public:
 	// Constructeurs
 	CsgRegularPolygon();
@@ -27,9 +29,8 @@ public:
 
 	// Getters & Setters
 	virtual int getNbSommets();
-	virtual Vec3f* getSommets();
+	virtual const Vec3f* getSommets();
 	virtual void setNbSommets(int);
-	virtual void setSommets(Vec3f*);
 
 	virtual BoundingBox getBoundingBox();
 };
