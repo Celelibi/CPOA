@@ -5,7 +5,7 @@ CONFIG += staticlib
 
 INCLUDEPATH += ../vectorMatrix
 
-SOURCES += *.cpp
+SOURCES += #*.cpp
 
 HEADERS += *.h #*.hpp
 
