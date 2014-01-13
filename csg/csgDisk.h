@@ -10,18 +10,18 @@
 
 class CsgDisk : public CsgPrimitive
 {
-    private:
-    // Attributs
-    Vec3f m_center;
+private:
+	// Attributs
+	Vec3f m_center;
 
-    public:
-    // Constructeurs
-    CsgDisk();
-    CsgDisk(string, int, CsgNode *);
-    CsgDisk(string, int, CsgNode*, Matrix33f, float);
-    CsgDisk(string, int, CsgNode *, Matrix33f, float, float, float);
-    CsgDisk(const CsgDisk&);
-    ~CsgDisk();
+public:
+	// Constructeurs
+	CsgDisk();
+	CsgDisk(string, int, CsgNode *);
+	CsgDisk(string, int, CsgNode*, Matrix33f, float);
+	CsgDisk(string, int, CsgNode *, Matrix33f, float, float, float);
+	CsgDisk(const CsgDisk&);
+	~CsgDisk();
 };
 
 #endif // CSGDISK_H
