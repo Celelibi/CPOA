@@ -1,11 +1,11 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+
 #include "csgRegularPolygon.h"
 #include "csgPrimitive.h"
 #include "csgNode.h"
 #include "matrix33f.h"
-
-#include <iostream>
-#include <string>
-#include <cstdlib>
 
 using namespace std;
 

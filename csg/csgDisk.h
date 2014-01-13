@@ -1,12 +1,12 @@
 #ifndef CSGDISK_H
 #define CSGDISK_H
 
+#include <string>
+
 #include "csgNode.h"
 #include "csgPrimitive.h"
 #include "matrix33f.h"
 #include "vec3f.h"
-
-#include <string>
 
 class CsgDisk : public CsgPrimitive
 {

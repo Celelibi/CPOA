@@ -1,12 +1,12 @@
 #ifndef CSGREGULARPOLYGON_H
 #define CSGREGULARPOLYGON_H
 
+#include <string>
+
 #include "csgNode.h"
 #include "csgPrimitive.h"
 #include "matrix33f.h"
 #include "vec3f.h"
-
-#include <string>
 
 class CsgRegularPolygon : public CsgPrimitive
 {

@@ -1,8 +1,8 @@
-#include "csgOperation.h"
-#include "csgNode.h"
-
 #include <iostream>
 #include <string>
+
+#include "csgOperation.h"
+#include "csgNode.h"
 
 using namespace std;
 

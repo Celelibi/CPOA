@@ -1,9 +1,9 @@
+#include <iostream>
+#include <string>
+
 #include "csgPrimitive.h"
 #include "csgNode.h"
 #include "matrix33f.h"
-
-#include <iostream>
-#include <string>
 
 using namespace std;
 
