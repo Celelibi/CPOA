@@ -23,14 +23,14 @@ BoundingBox::BoundingBox(float xmin, float xmax, float ymin, float ymax)
 BoundingBox::BoundingBox(const BoundingBox& copy)
 : m_xmin(copy.m_xmin), m_xmax(copy.m_xmax), m_ymin(copy.m_ymin), m_ymax(copy.m_ymax)
 {
-    cout << "Created new copy of a BoundingBox" << endl;
+	cout << "Created new copy of a BoundingBox" << endl;
 }
 
 // Getters & Setters
 
 float BoundingBox::getXmin()
 {
-    return m_xmin;
+	return m_xmin;
 }
 
 float BoundingBox::getXmax()
@@ -72,15 +72,17 @@ void BoundingBox::setYmax(float ymax)
 
 BoundingBox BoundingBox::operator+(const BoundingBox box)
 {
-    return BoundingBox(min(m_xmin, box.m_xmin), max(m_xmax, box.m_xmax), min(m_ymin, box.m_ymin), max(m_ymax, box.m_ymax));
+	return BoundingBox(min(m_xmin, box.m_xmin), max(m_xmax, box.m_xmax),
+	                   min(m_ymin, box.m_ymin), max(m_ymax, box.m_ymax));
 }
 
 BoundingBox BoundingBox::operator-(const BoundingBox box)
 {
-    return BoundingBox(*this);
+	return BoundingBox(*this);
 }
 
 BoundingBox BoundingBox::operator^(const BoundingBox box)
 {
-    return BoundingBox(max(m_xmin, box.m_xmin), min(m_xmax, box.m_xmax), max(m_ymin, box.m_ymin), min(m_ymax, box.m_ymax));
+	return BoundingBox(max(m_xmin, box.m_xmin), min(m_xmax, box.m_xmax),
+	                   max(m_ymin, box.m_ymin), min(m_ymax, box.m_ymax));
 }

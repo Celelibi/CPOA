@@ -3,14 +3,14 @@
 
 class BoundingBox
 {
-	private:
+private:
 	// Attributs
 	float m_xmin;
 	float m_xmax;
 	float m_ymin;
 	float m_ymax;
-	
-	public:
+
+public:
 	// Constructeurs
 	BoundingBox();
 	BoundingBox(float, float, float, float);
@@ -27,7 +27,7 @@ class BoundingBox
 	void setYmin(float);
 	void setYmax(float);
 
-	// Surcharge d'opérateurs 
+	// Surcharge d'opérateurs
 	BoundingBox operator+(const BoundingBox);  // Opérateur d'union
 	BoundingBox operator-(const BoundingBox);  // Opérateur de différence
 	BoundingBox operator^(const BoundingBox);  // Opérateur d'intersection
