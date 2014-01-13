@@ -23,15 +23,15 @@ public:
 	CsgRegularPolygon(std::string, CsgNode*, Matrix33f, float);
 	CsgRegularPolygon(std::string, CsgNode*, Matrix33f, float, int);
 	CsgRegularPolygon(const CsgRegularPolygon&);
-	~CsgRegularPolygon();
+	virtual ~CsgRegularPolygon();
 
 	// Getters & Setters
-	int getNbSommets();
-	Vec3f* getSommets();
-	void setNbSommets(int);
-	void setSommets(Vec3f*);
+	virtual int getNbSommets();
+	virtual Vec3f* getSommets();
+	virtual void setNbSommets(int);
+	virtual void setSommets(Vec3f*);
 
-	BoundingBox getBoundingBox();
+	virtual BoundingBox getBoundingBox();
 };
 
 #endif // CSGREGULARPOLYGON_H

@@ -21,24 +21,24 @@ public:
 	BoundingBox(const BoundingBox&);
 
 	// Getters & Setters
-	float getXmin();
-	float getXmax();
-	float getYmin();
-	float getYmax();
+	virtual float getXmin();
+	virtual float getXmax();
+	virtual float getYmin();
+	virtual float getYmax();
 
-	void setXmin(float);
-	void setXmax(float);
-	void setYmin(float);
-	void setYmax(float);
+	virtual void setXmin(float);
+	virtual void setXmax(float);
+	virtual void setYmin(float);
+	virtual void setYmax(float);
 
 	// Étend la bounding box pour contenir le point
-	void addPoint(Vec3f &);
-	void addPoint(float, float);
+	virtual void addPoint(Vec3f &);
+	virtual void addPoint(float, float);
 
 	// Surcharge d'opérateurs
-	BoundingBox operator+(const BoundingBox);  // Opérateur d'union
-	BoundingBox operator-(const BoundingBox);  // Opérateur de différence
-	BoundingBox operator^(const BoundingBox);  // Opérateur d'intersection
+	virtual BoundingBox operator+(const BoundingBox);  // Opérateur d'union
+	virtual BoundingBox operator-(const BoundingBox);  // Opérateur de différence
+	virtual BoundingBox operator^(const BoundingBox);  // Opérateur d'intersection
 };
 
 #endif // BOUNDINGBOX_H

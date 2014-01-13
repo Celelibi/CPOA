@@ -21,9 +21,9 @@ public:
 	CsgDisk(std::string, CsgNode*, Matrix33f, float);
 	CsgDisk(std::string, CsgNode *, Matrix33f, float, float, float);
 	CsgDisk(const CsgDisk&);
-	~CsgDisk();
+	virtual ~CsgDisk();
 
-	BoundingBox getBoundingBox();
+	virtual BoundingBox getBoundingBox();
 };
 
 #endif // CSGDISK_H

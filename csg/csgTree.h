@@ -26,11 +26,12 @@ public:
 	CsgTree();
 
 	// Autres fonctions
-	void addPrimitive(CsgPrimitive*);
-	void joinPrimitives(std::string, CsgOperationType, CsgNode*, CsgNode*);
-	CsgNode* nodeFromLabel(std::string);
-	std::string labelFromNode(CsgNode*);
-	void printTree();
+	virtual void addPrimitive(CsgPrimitive*);
+	virtual void joinPrimitives(std::string, CsgOperationType,
+	                            CsgNode*, CsgNode*);
+	virtual CsgNode* nodeFromLabel(std::string);
+	virtual std::string labelFromNode(CsgNode*);
+	virtual void printTree();
 };
 
 #endif // CSGTREE_H

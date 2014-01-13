@@ -21,15 +21,15 @@ public:
 	CsgNode();
 	CsgNode(std::string, CsgNode*);
 	CsgNode(const CsgNode&);
-	~CsgNode();
+	virtual ~CsgNode();
 
 	// Getters & Setters
-	std::string getLabel();
-	int getId();
-	CsgNode* getParent();
+	virtual std::string getLabel();
+	virtual int getId();
+	virtual CsgNode* getParent();
 
-	void setLabel(std::string);
-	void setParent(CsgNode*);
+	virtual void setLabel(std::string);
+	virtual void setParent(CsgNode*);
 
 	virtual BoundingBox getBoundingBox() = 0;
 };

@@ -25,15 +25,15 @@ public:
 	CsgOperation(const CsgOperation&);
 
 	// Getters & Setters
-	CsgOperationType getType();
-	CsgNode* getLeft();
-	CsgNode* getRight();
+	virtual CsgOperationType getType();
+	virtual CsgNode* getLeft();
+	virtual CsgNode* getRight();
 
-	void setType(CsgOperationType);
-	void setLeft(CsgNode*);
-	void setRight(CsgNode*);
+	virtual void setType(CsgOperationType);
+	virtual void setLeft(CsgNode*);
+	virtual void setRight(CsgNode*);
 
-	BoundingBox getBoundingBox();
+	virtual BoundingBox getBoundingBox();
 };
 
 #endif // CSGOPERATION_H

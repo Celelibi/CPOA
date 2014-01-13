@@ -20,12 +20,12 @@ public:
 	CsgPrimitive(std::string, CsgNode*);
 	CsgPrimitive(std::string, CsgNode*, Matrix33f, float);
 	CsgPrimitive(const CsgPrimitive&);
-	~CsgPrimitive();
+	virtual ~CsgPrimitive();
 
 	// Getters & Setters
-	Matrix33f getMatrix();
+	virtual Matrix33f getMatrix();
 
-	void setMatrix(Matrix33f);
+	virtual void setMatrix(Matrix33f);
 };
 
 #endif // CSGPRIMITIVE_H
