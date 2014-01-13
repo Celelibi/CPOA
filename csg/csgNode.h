@@ -7,27 +7,27 @@ using namespace std;
 
 class CsgNode
 {
-    protected:
-    // Attributs
+protected:
+	// Attributs
 	string m_label;
-    int m_id;
-    CsgNode* m_parent;
-		
-    public:
-    // Constructeurs
-    CsgNode();
-    CsgNode(string, int, CsgNode*);
-    CsgNode(const CsgNode&);
-    ~CsgNode();
+	int m_id;
+	CsgNode* m_parent;
 
-    // Getters & Setters
-    string getLabel();
-    int getId();
-    CsgNode* getParent();
+public:
+	// Constructeurs
+	CsgNode();
+	CsgNode(string, int, CsgNode*);
+	CsgNode(const CsgNode&);
+	~CsgNode();
 
-    void setLabel(string);
-    void setId(int);
-    void setParent(CsgNode*);
+	// Getters & Setters
+	string getLabel();
+	int getId();
+	CsgNode* getParent();
+
+	void setLabel(string);
+	void setId(int);
+	void setParent(CsgNode*);
 };
 
 #endif // CSGNODE_H
