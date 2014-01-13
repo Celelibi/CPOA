@@ -72,3 +72,21 @@ void CsgOperation::setRight(CsgNode* val)
 {
 	m_right = val;
 }
+
+BoundingBox CsgOperation::getBoundingBox()
+{
+	switch (m_type)
+	{
+	case INTERSECT:
+		return m_left->getBoundingBox() ^ m_right->getBoundingBox();
+		break;
+	case UNION:
+		return m_left->getBoundingBox() + m_right->getBoundingBox();
+		break;
+	case DIFF:
+		return m_left->getBoundingBox() - m_right->getBoundingBox();
+		break;
+	default:
+		throw "WTF is this operation type?";
+	}
+}

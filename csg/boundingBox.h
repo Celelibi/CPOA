@@ -1,6 +1,9 @@
 #ifndef BOUNDINGBOX_H
 #define BOUNDINGBOX_H
 
+#include "vec3f.h"
+
+
 class BoundingBox
 {
 private:
@@ -9,6 +12,7 @@ private:
 	float m_xmax;
 	float m_ymin;
 	float m_ymax;
+	bool m_empty;
 
 public:
 	// Constructeurs
@@ -26,6 +30,10 @@ public:
 	void setXmax(float);
 	void setYmin(float);
 	void setYmax(float);
+
+	// Étend la bounding box pour contenir le point
+	void addPoint(Vec3f &);
+	void addPoint(float, float);
 
 	// Surcharge d'opérateurs
 	BoundingBox operator+(const BoundingBox);  // Opérateur d'union

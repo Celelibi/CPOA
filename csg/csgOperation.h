@@ -4,6 +4,7 @@
 #include <string>
 
 #include "csgNode.h"
+#include "boundingBox.h"
 
 enum CsgOperationType { INTERSECT, UNION, DIFF };
 
@@ -31,6 +32,8 @@ public:
 	void setType(CsgOperationType);
 	void setLeft(CsgNode*);
 	void setRight(CsgNode*);
+
+	BoundingBox getBoundingBox();
 };
 
 #endif // CSGOPERATION_H

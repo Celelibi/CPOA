@@ -5,8 +5,8 @@
 
 #include "csgNode.h"
 #include "csgPrimitive.h"
+#include "boundingBox.h"
 #include "matrix33f.h"
-#include "vec3f.h"
 
 class CsgDisk : public CsgPrimitive
 {
@@ -22,6 +22,8 @@ public:
 	CsgDisk(std::string, CsgNode *, Matrix33f, float, float, float);
 	CsgDisk(const CsgDisk&);
 	~CsgDisk();
+
+	BoundingBox getBoundingBox();
 };
 
 #endif // CSGDISK_H

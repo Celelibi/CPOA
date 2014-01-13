@@ -4,6 +4,7 @@
 #include <string>
 
 #include "csgNode.h"
+#include "boundingBox.h"
 #include "matrix33f.h"
 
 class CsgPrimitive : public CsgNode

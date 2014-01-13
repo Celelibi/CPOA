@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "boundingBox.h"
+
 class CsgNode
 {
 private:
@@ -28,6 +30,8 @@ public:
 
 	void setLabel(std::string);
 	void setParent(CsgNode*);
+
+	virtual BoundingBox getBoundingBox() = 0;
 };
 
 #endif // CSGNODE_H

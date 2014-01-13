@@ -6,6 +6,7 @@
 #include "csgPrimitive.h"
 #include "csgNode.h"
 #include "matrix33f.h"
+#include "vec2f.h"
 
 using namespace std;
 
@@ -38,12 +39,30 @@ CsgDisk::CsgDisk(string label, CsgNode* parent, Matrix33f matrix, float diameter
 	CsgDisk::CsgDisk(const CsgDisk& copy)
 : CsgPrimitive(copy)
 {
-	cout << "Created CsgDisk nb" << m_id << " copy of nb"
-		<< copy.m_id << " label " << copy.m_label << endl;
+	cout << "Created CsgDisk nb" << m_id << " copy of nb ";
+	cout << copy.m_id << " label " << copy.m_label << endl;
 }
 
 // Destructeur
 CsgDisk::~CsgDisk()
 {
 	cout << "Destroyed CsgDisk nb" << m_id << " label " << m_label << endl;
+}
+
+BoundingBox CsgDisk::getBoundingBox()
+{
+	BoundingBox ret;
+	Matrix33f mat = getMatrix();
+	Vec3f v;
+
+	v = mat * Vec3f(-0.5, -0.5, 1);
+	ret.addPoint(v);
+	v = mat * Vec3f(-0.5, +0.5, 1);
+	ret.addPoint(v);
+	v = mat * Vec3f(+0.5, -0.5, 1);
+	ret.addPoint(v);
+	v = mat * Vec3f(+0.5, +0.5, 1);
+	ret.addPoint(v);
+
+	return ret;
 }

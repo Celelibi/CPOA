@@ -6,6 +6,7 @@
 #include "csgPrimitive.h"
 #include "csgNode.h"
 #include "matrix33f.h"
+#include "vec3f.h"
 
 using namespace std;
 
@@ -75,4 +76,22 @@ void CsgRegularPolygon::setNbSommets(int val)
 void CsgRegularPolygon::setSommets(Vec3f* val)
 {
 	m_sommets = val;
+}
+
+BoundingBox CsgRegularPolygon::getBoundingBox()
+{
+	BoundingBox ret;
+	Matrix33f mat = getMatrix();
+	Vec3f v;
+
+	v = mat * Vec3f(-0.5, -0.5, 1);
+	ret.addPoint(v);
+	v = mat * Vec3f(-0.5, +0.5, 1);
+	ret.addPoint(v);
+	v = mat * Vec3f(+0.5, -0.5, 1);
+	ret.addPoint(v);
+	v = mat * Vec3f(+0.5, +0.5, 1);
+	ret.addPoint(v);
+
+	return ret;
 }

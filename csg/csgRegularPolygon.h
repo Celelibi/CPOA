@@ -5,6 +5,7 @@
 
 #include "csgNode.h"
 #include "csgPrimitive.h"
+#include "boundingBox.h"
 #include "matrix33f.h"
 #include "vec3f.h"
 
@@ -29,6 +30,8 @@ public:
 	Vec3f* getSommets();
 	void setNbSommets(int);
 	void setSommets(Vec3f*);
+
+	BoundingBox getBoundingBox();
 };
 
 #endif // CSGREGULARPOLYGON_H
