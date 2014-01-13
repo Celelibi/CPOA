@@ -7,27 +7,27 @@ enum CsgOperationType { INTERSECT, UNION, DIFF };
 
 class CsgOperation : public CsgNode
 {
-    protected:
-    // Attributs
-    CsgOperationType m_type;
-    CsgNode* m_left;
-    CsgNode* m_right;
-		
-    public:
-    // Constructeurs
-    CsgOperation();
-    CsgOperation(string, int, CsgNode*);
-    CsgOperation(string, int, CsgNode*, CsgOperationType, CsgNode*, CsgNode*);
-    CsgOperation(const CsgOperation&);
+protected:
+	// Attributs
+	CsgOperationType m_type;
+	CsgNode* m_left;
+	CsgNode* m_right;
 
-    // Getters & Setters
-    CsgOperationType getType();
-    CsgNode* getLeft();
-    CsgNode* getRight();
+public:
+	// Constructeurs
+	CsgOperation();
+	CsgOperation(string, int, CsgNode*);
+	CsgOperation(string, int, CsgNode*, CsgOperationType, CsgNode*, CsgNode*);
+	CsgOperation(const CsgOperation&);
 
-    void setType(CsgOperationType);
-    void setLeft(CsgNode*);
-    void setRight(CsgNode*);
+	// Getters & Setters
+	CsgOperationType getType();
+	CsgNode* getLeft();
+	CsgNode* getRight();
+
+	void setType(CsgOperationType);
+	void setLeft(CsgNode*);
+	void setRight(CsgNode*);
 };
 
 #endif // CSGOPERATION_H
