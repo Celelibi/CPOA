@@ -6,22 +6,24 @@
 
 using namespace std;
 
+int CsgNode::m_idcounter = 0;
+
 // Constructeurs
 CsgNode::CsgNode()
-: m_label(""), m_id(0), m_parent(NULL)
+: m_label(""), m_id(m_idcounter++), m_parent(NULL)
 {
 	cout << "Created empty CsgNode" << endl;
 }
 
 CsgNode::CsgNode(string label, int id, CsgNode* parent)
-: m_label(label), m_id(id), m_parent(parent)
+: m_label(label), m_id(m_idcounter++), m_parent(parent)
 {
 	cout << "Created CsgNode nb" << id << " label " << label << endl;
 }
 
 // Constructeur de copie
 CsgNode::CsgNode(const CsgNode& copy)
-: m_label(copy.m_label), m_id(copy.m_id + 1), m_parent(copy.m_parent)
+: m_label(copy.m_label), m_id(m_idcounter++), m_parent(copy.m_parent)
 {
 	cout << "Created CsgNode nb" << m_id << " copy of nb"
 		<< copy.m_id << " label " << copy.m_label << endl;

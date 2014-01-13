@@ -7,6 +7,9 @@ using namespace std;
 
 class CsgNode
 {
+private:
+	static int m_idcounter;
+
 protected:
 	// Attributs
 	string m_label;
