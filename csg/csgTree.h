@@ -10,21 +10,21 @@
 
 class CsgTree
 {
-    private:
-    // Attributs
-    std::set<CsgNode*> roots;
-    std::set<CsgNode*> leaves;
-    std::set<CsgNode*>::iterator it;
-    int currentID;
+private:
+	// Attributs
+	std::set<CsgNode*> roots;
+	std::set<CsgNode*> leaves;
+	std::set<CsgNode*>::iterator it;
+	int currentID;
 
-    public:
-    // Constructeurs
-    CsgTree();
+public:
+	// Constructeurs
+	CsgTree();
 
-    // Autres fonctions
-    void addPrimitive(CsgNode*);
-    void joinPrimitive(CsgNode*, CsgNode*, CsgOperation*);
-    void printTree();
+	// Autres fonctions
+	void addPrimitive(CsgNode*);
+	void joinPrimitive(CsgNode*, CsgNode*, CsgOperation*);
+	void printTree();
 };
 
 #endif // CSGTREE_H
