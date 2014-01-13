@@ -15,14 +15,13 @@ private:
 	std::set<CsgNode*> roots;
 	std::set<CsgNode*> leaves;
 	std::set<CsgNode*>::iterator it;
-	int currentID;
 
 public:
 	// Constructeurs
 	CsgTree();
 
 	// Autres fonctions
-	void addPrimitive(CsgNode*);
+	void addPrimitive(CsgPrimitive*);
 	void joinPrimitive(CsgNode*, CsgNode*, CsgOperation*);
 	void printTree();
 };

@@ -9,19 +9,12 @@ using namespace std;
 
 CsgTree::CsgTree()
 {
-	currentID = 0;
 }
 
-void CsgTree::addPrimitive(CsgNode* primitive)
+void CsgTree::addPrimitive(CsgPrimitive* primitive)
 {
-	ostringstream oss;
-	oss << "node" << currentID;
-	CsgNode* root = new CsgNode(oss.str(), NULL);
-
-	primitive->setParent(root);
-	roots.insert(root);
+	primitive->setParent(NULL);
 	leaves.insert(primitive);
-
 }
 
 void CsgTree::joinPrimitive(CsgNode* primitive1, CsgNode* primitive2, CsgOperation* operation)
