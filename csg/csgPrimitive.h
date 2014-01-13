@@ -6,23 +6,23 @@
 
 class CsgPrimitive : public CsgNode
 {
-	protected:
-    // Attributs
-    Matrix33f m_matrix;
-    float m_diameter;
-		
-    public:
-    // Constructeurs
-    CsgPrimitive();
-    CsgPrimitive(string, int, CsgNode*);
-    CsgPrimitive(string, int, CsgNode*, Matrix33f, float);
-    CsgPrimitive(const CsgPrimitive&);
-    ~CsgPrimitive();
+protected:
+	// Attributs
+	Matrix33f m_matrix;
+	float m_diameter;
 
-    // Getters & Setters
-    Matrix33f getMatrix();
+public:
+	// Constructeurs
+	CsgPrimitive();
+	CsgPrimitive(string, int, CsgNode*);
+	CsgPrimitive(string, int, CsgNode*, Matrix33f, float);
+	CsgPrimitive(const CsgPrimitive&);
+	~CsgPrimitive();
 
-    void setMatrix(Matrix33f);
+	// Getters & Setters
+	Matrix33f getMatrix();
+
+	void setMatrix(Matrix33f);
 };
 
 #endif // CSGPRIMITIVE_H
