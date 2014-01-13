@@ -13,10 +13,10 @@ class CsgRegularPolygon : public CsgPrimitive
 {
 protected:
 	// Attributs
-	int m_nbSommets;
-	Vec3f* m_sommets;
+	int m_nbVertices;
+	Vec3f* m_vertices;
 
-	void genSommets();
+	void genVertices();
 
 public:
 	// Constructeurs
@@ -28,9 +28,9 @@ public:
 	virtual ~CsgRegularPolygon();
 
 	// Getters & Setters
-	virtual int getNbSommets();
-	virtual const Vec3f* getSommets();
-	virtual void setNbSommets(int);
+	virtual int getNbVertices();
+	virtual const Vec3f* getVertices();
+	virtual void setNbVertices(int);
 
 	virtual BoundingBox getBoundingBox();
 };

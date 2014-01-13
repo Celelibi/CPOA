@@ -14,40 +14,40 @@ using namespace std;
 // Constructeurs
 
 CsgRegularPolygon::CsgRegularPolygon()
-: CsgPrimitive(), m_nbSommets(0), m_sommets(NULL)
+: CsgPrimitive(), m_nbVertices(0), m_vertices(NULL)
 {
 	cout << "Created empty CsgRegularPolygon" << endl;
 }
 
 CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent)
-: CsgPrimitive(label, parent), m_nbSommets(0), m_sommets(NULL)
+: CsgPrimitive(label, parent), m_nbVertices(0), m_vertices(NULL)
 {
 	cout << "Created CsgRegularPolygon nb" << m_id;
 	cout << " label " << m_label << endl;
 }
 
 CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent, Matrix33f matrix, float diameter)
-: CsgPrimitive(label, parent, matrix, diameter), m_nbSommets(0), m_sommets(NULL)
+: CsgPrimitive(label, parent, matrix, diameter), m_nbVertices(0), m_vertices(NULL)
 {
 	cout << "Created CsgRegularPolygon nb" << m_id;
 	cout << " label " << m_label << endl;
 }
 
-CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent, Matrix33f matrix, float diameter, int nbSommets)
-: CsgPrimitive(label, parent, matrix, diameter), m_nbSommets(nbSommets), m_sommets(NULL)
+CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent, Matrix33f matrix, float diameter, int nbVertices)
+: CsgPrimitive(label, parent, matrix, diameter), m_nbVertices(nbVertices), m_vertices(NULL)
 {
-	genSommets();
+	genVertices();
 	cout << "Created CsgRegularPolygon nb" << m_id;
 	cout << " label " << m_label << endl;
 }
 
 // Constructeur de copie
 CsgRegularPolygon::CsgRegularPolygon(const CsgRegularPolygon& copy)
-: CsgPrimitive(copy), m_nbSommets(copy.m_nbSommets), m_sommets(NULL)
+: CsgPrimitive(copy), m_nbVertices(copy.m_nbVertices), m_vertices(NULL)
 {
-	m_sommets = new Vec3f[m_nbSommets];
-	for (int i = 0; i < m_nbSommets; i++)
-		m_sommets[i] = copy.m_sommets[i];
+	m_vertices = new Vec3f[m_nbVertices];
+	for (int i = 0; i < m_nbVertices; i++)
+		m_vertices[i] = copy.m_vertices[i];
 
 	cout << "Created CsgRegularPolygon nb" << m_id << " copy of nb"
 		<< copy.m_id << " - " << copy.m_label << endl;
@@ -56,27 +56,27 @@ CsgRegularPolygon::CsgRegularPolygon(const CsgRegularPolygon& copy)
 // Destructeur
 CsgRegularPolygon::~CsgRegularPolygon()
 {
-	if(m_sommets != NULL)
-		delete[] m_sommets;
+	if(m_vertices != NULL)
+		delete[] m_vertices;
 
 	cout << "Destroyed CsgRegularPolygon nb" << m_id << " label " << m_label << endl;
 }
 
 // Getters & Setters
-int CsgRegularPolygon::getNbSommets()
+int CsgRegularPolygon::getNbVertices()
 {
-	return m_nbSommets;
+	return m_nbVertices;
 }
 
-const Vec3f* CsgRegularPolygon::getSommets()
+const Vec3f* CsgRegularPolygon::getVertices()
 {
-	return m_sommets;
+	return m_vertices;
 }
 
-void CsgRegularPolygon::setNbSommets(int val)
+void CsgRegularPolygon::setNbVertices(int val)
 {
-	m_nbSommets = val;
-	genSommets();
+	m_nbVertices = val;
+	genVertices();
 }
 
 BoundingBox CsgRegularPolygon::getBoundingBox()
@@ -98,22 +98,22 @@ BoundingBox CsgRegularPolygon::getBoundingBox()
 }
 
 // Autres méthodes
-void CsgRegularPolygon::genSommets()
+void CsgRegularPolygon::genVertices()
 {
-	if (m_sommets != NULL)
-		delete[] m_sommets;
+	if (m_vertices != NULL)
+		delete[] m_vertices;
 
-	// Pas de points pour moins de 3 sommets
-	if (m_nbSommets < 3)
+	// Pas de points pour moins de 3 vertices
+	if (m_nbVertices < 3)
 	{
-		m_sommets = NULL;
+		m_vertices = NULL;
 		return;
 	}
 
-	m_sommets = new Vec3f[m_nbSommets];
-	for (int i = 0; i < m_nbSommets; i++)
+	m_vertices = new Vec3f[m_nbVertices];
+	for (int i = 0; i < m_nbVertices; i++)
 	{
-		float a = i * 2 * M_PI / m_nbSommets;
-		m_sommets[i] = Vec3f(cos(a) / 2, sin(a) / 2, 1);
+		float a = i * 2 * M_PI / m_nbVertices;
+		m_vertices[i] = Vec3f(cos(a) / 2, sin(a) / 2, 1);
 	}
 }
