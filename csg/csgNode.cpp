@@ -15,10 +15,10 @@ CsgNode::CsgNode()
 	cout << "Created empty CsgNode" << endl;
 }
 
-CsgNode::CsgNode(string label, int id, CsgNode* parent)
+CsgNode::CsgNode(string label, CsgNode* parent)
 : m_label(label), m_id(m_idcounter++), m_parent(parent)
 {
-	cout << "Created CsgNode nb" << id << " label " << label << endl;
+	cout << "Created CsgNode nb" << m_id << " label " << m_label << endl;
 }
 
 // Constructeur de copie
@@ -54,11 +54,6 @@ CsgNode* CsgNode::getParent()
 void CsgNode::setLabel(string val)
 {
 	m_label = val;
-}
-
-void CsgNode::setId(int val)
-{
-	m_id = val;
 }
 
 void CsgNode::setParent(CsgNode* val)

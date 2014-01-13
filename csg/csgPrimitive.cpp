@@ -13,16 +13,18 @@ CsgPrimitive::CsgPrimitive() : CsgNode()
 	cout << "Created empty CsgPrimitive" << endl;
 }
 
-CsgPrimitive::CsgPrimitive(string label, int id, CsgNode* parent)
-: CsgNode(label, id, parent)
+CsgPrimitive::CsgPrimitive(string label, CsgNode* parent)
+: CsgNode(label, parent)
 {
-	cout << "Created CsgPrimitive nb" << id << " label " << label << endl;
+	cout << "Created CsgPrimitive nb" << m_id;
+	cout << " label " << m_label << endl;
 }
 
-CsgPrimitive::CsgPrimitive(string label, int id, CsgNode* parent, Matrix33f matrix, float diameter)
-: CsgNode(label, id, parent), m_matrix(matrix), m_diameter(diameter)
+CsgPrimitive::CsgPrimitive(string label, CsgNode* parent, Matrix33f matrix, float diameter)
+: CsgNode(label, parent), m_matrix(matrix), m_diameter(diameter)
 {
-	cout << "Created CsgPrimitive nb" << id << " label " << label << endl;
+	cout << "Created CsgPrimitive nb" << m_id;
+	cout << " label " << m_label << endl;
 }
 
 // Constructeur de copie

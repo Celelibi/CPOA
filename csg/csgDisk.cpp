@@ -15,22 +15,22 @@ CsgDisk::CsgDisk() : CsgPrimitive()
 	cout << "Created empty CsgDisk" << endl;
 }
 
-CsgDisk::CsgDisk(string label, int id, CsgNode* parent)
-: CsgPrimitive(label, id, parent)
+CsgDisk::CsgDisk(string label, CsgNode* parent)
+: CsgPrimitive(label, parent)
 {
-	cout << "Created CsgDisk nb" << id << " label " << label << endl;
+	cout << "Created CsgDisk nb" << m_id << " label " << m_label << endl;
 }
 
-CsgDisk::CsgDisk(string label, int id, CsgNode* parent, Matrix33f matrix, float diameter)
-: CsgPrimitive(label, id, parent, matrix, diameter)
+CsgDisk::CsgDisk(string label, CsgNode* parent, Matrix33f matrix, float diameter)
+: CsgPrimitive(label, parent, matrix, diameter)
 {
-	cout << "Created CsgDisk nb" << id << " label " << label << endl;
+	cout << "Created CsgDisk nb" << m_id << " label " << m_label << endl;
 }
 
-CsgDisk::CsgDisk(string label, int id, CsgNode* parent, Matrix33f matrix, float diameter, float x, float y)
-: CsgPrimitive(label, id, parent, matrix, diameter), m_center(x, y, 1)
+CsgDisk::CsgDisk(string label, CsgNode* parent, Matrix33f matrix, float diameter, float x, float y)
+: CsgPrimitive(label, parent, matrix, diameter), m_center(x, y, 1)
 {
-	cout << "Created CsgDisk nb" << id << " label " << label << endl;
+	cout << "Created CsgDisk nb" << m_id << " label " << m_label << endl;
 }
 
 // Constructeur de copie

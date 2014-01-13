@@ -16,13 +16,10 @@ void CsgTree::addPrimitive(CsgNode* primitive)
 {
 	ostringstream oss;
 	oss << "node" << currentID;
-	CsgNode* root = new CsgNode(oss.str(), currentID, NULL);
+	CsgNode* root = new CsgNode(oss.str(), NULL);
 
-	currentID++;
 	primitive->setParent(root);
 	roots.insert(root);
-	primitive->setId(currentID);
-	currentID++;
 	leaves.insert(primitive);
 
 }

@@ -16,8 +16,8 @@ protected:
 public:
 	// Constructeurs
 	CsgOperation();
-	CsgOperation(string, int, CsgNode*);
-	CsgOperation(string, int, CsgNode*, CsgOperationType, CsgNode*, CsgNode*);
+	CsgOperation(string, CsgNode*);
+	CsgOperation(string, CsgNode*, CsgOperationType, CsgNode*, CsgNode*);
 	CsgOperation(const CsgOperation&);
 
 	// Getters & Setters

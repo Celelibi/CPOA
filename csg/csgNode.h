@@ -13,13 +13,13 @@ private:
 protected:
 	// Attributs
 	string m_label;
-	int m_id;
+	const int m_id;
 	CsgNode* m_parent;
 
 public:
 	// Constructeurs
 	CsgNode();
-	CsgNode(string, int, CsgNode*);
+	CsgNode(string, CsgNode*);
 	CsgNode(const CsgNode&);
 	~CsgNode();
 
@@ -29,7 +29,6 @@ public:
 	CsgNode* getParent();
 
 	void setLabel(string);
-	void setId(int);
 	void setParent(CsgNode*);
 };
 

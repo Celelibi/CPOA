@@ -12,17 +12,19 @@ CsgOperation::CsgOperation() : CsgNode()
 	cout << "Created empty CsgOperation" << endl;
 }
 
-CsgOperation::CsgOperation(string label, int id, CsgNode* parent)
-: CsgNode(label, id, parent)
+CsgOperation::CsgOperation(string label, CsgNode* parent)
+: CsgNode(label, parent)
 {
-	cout << "Created CsgOperation nb" << id << " label " << label << endl;
+	cout << "Created CsgOperation nb" << m_id;
+	cout << " label " << m_label << endl;
 }
 
-CsgOperation::CsgOperation(string label, int id, CsgNode* parent,
-                           CsgOperationType type, CsgNode* left, CsgNode* right)
-: CsgNode(label, id, parent), m_type(type), m_left(left), m_right(right)
+CsgOperation::CsgOperation(string label, CsgNode* parent, CsgOperationType
+                           type, CsgNode* left, CsgNode* right)
+: CsgNode(label, parent), m_type(type), m_left(left), m_right(right)
 {
-	cout << "Created CsgOperation nb" << id << " label " << label << endl;
+	cout << "Created CsgOperation nb" << m_id;
+	cout << " label " << m_label << endl;
 }
 
 // Constructeur de copie

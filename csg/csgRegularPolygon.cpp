@@ -16,23 +16,26 @@ CsgRegularPolygon::CsgRegularPolygon() : CsgPrimitive()
 	cout << "Created empty CsgRegularPolygon" << endl;
 }
 
-CsgRegularPolygon::CsgRegularPolygon(string label, int id, CsgNode* parent)
-: CsgPrimitive(label, id, parent)
+CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent)
+: CsgPrimitive(label, parent)
 {
-	cout << "Created CsgRegularPolygon nb" << id << " label " << label << endl;
+	cout << "Created CsgRegularPolygon nb" << m_id;
+	cout << " label " << m_label << endl;
 }
 
-CsgRegularPolygon::CsgRegularPolygon(string label, int id, CsgNode* parent, Matrix33f matrix, float diameter)
-: CsgPrimitive(label, id, parent, matrix, diameter)
+CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent, Matrix33f matrix, float diameter)
+: CsgPrimitive(label, parent, matrix, diameter)
 {
-	cout << "Created CsgRegularPolygon nb" << id << " label " << label << endl;
+	cout << "Created CsgRegularPolygon nb" << m_id;
+	cout << " label " << m_label << endl;
 }
 
-CsgRegularPolygon::CsgRegularPolygon(string label, int id, CsgNode* parent, Matrix33f matrix, float diameter, int nbSommets)
-: CsgPrimitive(label, id, parent, matrix, diameter), m_nbSommets(nbSommets)
+CsgRegularPolygon::CsgRegularPolygon(string label, CsgNode* parent, Matrix33f matrix, float diameter, int nbSommets)
+: CsgPrimitive(label, parent, matrix, diameter), m_nbSommets(nbSommets)
 {
 	m_sommets = new Vec3f[m_nbSommets];
-	cout << "Created CsgRegularPolygon nb" << id << " label " << label << endl;
+	cout << "Created CsgRegularPolygon nb" << m_id;
+	cout << " label " << m_label << endl;
 }
 
 // Constructeur de copie

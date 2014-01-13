@@ -14,8 +14,8 @@ protected:
 public:
 	// Constructeurs
 	CsgPrimitive();
-	CsgPrimitive(string, int, CsgNode*);
-	CsgPrimitive(string, int, CsgNode*, Matrix33f, float);
+	CsgPrimitive(string, CsgNode*);
+	CsgPrimitive(string, CsgNode*, Matrix33f, float);
 	CsgPrimitive(const CsgPrimitive&);
 	~CsgPrimitive();
 
