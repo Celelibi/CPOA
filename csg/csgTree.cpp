@@ -17,14 +17,15 @@ CsgTree::CsgTree()
 
 void CsgTree::addPrimitive(CsgPrimitive* primitive)
 {
-	string label(primitive->getLabel());
+	int id = primitive->getId();
+
 	primitive->setParent(NULL);
 	m_leaves.insert(primitive);
 
-	if (nodeFromLabel(label) != NULL)
+	if (nodeFromId(id) != NULL)
 		throw "A node with this name already exists";
 	else
-		m_label_map[label] = primitive;
+		m_id_map[id] = primitive;
 }
 
 void CsgTree::joinPrimitives(string label, CsgOperationType optype,
@@ -34,10 +35,7 @@ void CsgTree::joinPrimitives(string label, CsgOperationType optype,
 
 	operation = new CsgOperation(label, NULL, optype, node1, node2);
 
-	if (nodeFromLabel(label) != NULL)
-		throw "A node with this name already exists";
-	else
-		m_label_map[label] = operation;
+	m_id_map[operation->getId()] = operation;
 
 	node1->setParent(operation);
 	node2->setParent(operation);
@@ -51,20 +49,20 @@ void CsgTree::joinPrimitives(string label, CsgOperationType optype,
 	m_roots.insert(operation);
 }
 
-const CsgNode* CsgTree::nodeFromLabel(string label) const
+const CsgNode* CsgTree::nodeFromId(int id) const
 {
-	label_map_t::const_iterator it;
-	it = m_label_map.find(label);
+	id_map_t::const_iterator it;
+	it = m_id_map.find(id);
 
-	if (it == m_label_map.end())
+	if (it == m_id_map.end())
 		return NULL;
 	else
 		return it->second;
 }
 
-string CsgTree::labelFromNode(const CsgNode* node) const
+int CsgTree::idFromNode(const CsgNode* node) const
 {
-	return node->getLabel();
+	return node->getId();
 }
 
 int CsgTree::vizuGraphRec(ostream& out, const CsgNode *node, int prof,
