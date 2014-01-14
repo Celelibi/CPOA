@@ -16,10 +16,10 @@ QMAKE_CXXFLAGS += -Wall
 INCLUDEPATH += ../vectorMatrix ../image ../csg ../particle
 
 LIBS +=  -L ../lib \
-#	-lcsg   \
+	-lcsg   \
 #	-limage \
-#	-lvectorMatrix \
-#   -lparticle \
+	-lvectorMatrix \
+#	-lparticle \
 	-lboost_thread
 
 #PRE_TARGETDEPS = ../lib/*
@@ -34,3 +34,4 @@ HEADERS  += mainwindow.h \
 			renderImg.h
 
 FORMS    += mainwindow.ui
+QMAKE_CXXFLAGS += -DNO_TEMPLATE_IMPLEMENTATION

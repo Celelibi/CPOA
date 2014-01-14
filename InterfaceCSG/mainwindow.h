@@ -6,8 +6,8 @@
 #include <QKeyEvent>
 
 #include "renderImg.h"
-//#include "csgPrimitive.h"
-//#include "csgTree.h"
+#include "csgPrimitive.h"
+#include "csgTree.h"
 
 #include <map>
 
@@ -54,8 +54,8 @@ protected:
 //	/// current operation (could be NULL)
 //	CsgOperation * m_oper;
 
-//	/// the CSG tree
-//	CsgTree m_tree;
+	/// the CSG tree
+	CsgTree m_tree;
 
 	/// Bounding Box to draw
 //	BoundingBox m_bb;
