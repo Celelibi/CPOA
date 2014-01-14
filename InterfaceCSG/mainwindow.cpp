@@ -1,8 +1,3 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
-
-//#include"csgPrimitive.h"
-
 #include <QFileDialog>
 #include <QTextCursor>
 
@@ -10,6 +5,13 @@
 #include <fstream>
 #include <sstream>
 #include <cmath>
+
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
+#include "csgPrimitive.h"
+#include "csgRegularPolygon.h"
+#include "csgDisk.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
