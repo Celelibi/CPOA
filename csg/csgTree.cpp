@@ -49,7 +49,7 @@ void CsgTree::joinPrimitives(string label, CsgOperationType optype,
 	m_roots.insert(operation);
 }
 
-const CsgNode* CsgTree::nodeFromId(int id) const
+CsgNode* CsgTree::nodeFromId(int id) const
 {
 	id_map_t::const_iterator it;
 	it = m_id_map.find(id);

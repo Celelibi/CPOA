@@ -14,7 +14,7 @@ class CsgTree
 {
 private:
 	// Types
-	typedef std::map<int, const CsgNode*> id_map_t;
+	typedef std::map<int, CsgNode*> id_map_t;
 
 	// Attributs
 	std::set<const CsgNode*> m_roots;
@@ -33,7 +33,7 @@ public:
 	virtual void addPrimitive(CsgPrimitive*);
 	virtual void joinPrimitives(std::string, CsgOperationType,
 	                            CsgNode*, CsgNode*);
-	virtual const CsgNode* nodeFromId(int) const;
+	virtual CsgNode* nodeFromId(int) const;
 	virtual int idFromNode(const CsgNode *) const;
 	virtual std::string asciiArtGraph() const;
 	virtual void printTree() const;
