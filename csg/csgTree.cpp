@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <string>
 
 #include "csgNode.h"
@@ -64,6 +65,57 @@ CsgNode* CsgTree::nodeFromLabel(string label)
 string CsgTree::labelFromNode(CsgNode* node)
 {
 	return node->getLabel();
+}
+
+int CsgTree::vizuGraphRec(ostream& out, CsgNode *node, int prof,
+		bool right, const string& interligne)
+{
+	int lprof;
+	int rprof;
+
+	if (node == NULL)
+	{
+		if (right)
+			out << interligne << endl;
+		else
+			out << endl;
+		return 0;
+	}
+
+	if (right)
+		for (int i = 0; i < prof; ++i)
+			out << "          ";
+
+	out << " --> " << node->getLabel();
+
+	if (node->isPrimitive())
+	{
+		CsgOperation *op = dynamic_cast<CsgOperation *>(node);
+		lprof = vizuGraphRec(out, op->getLeft(), prof + 1, false,
+					 interligne + "|         ");
+		rprof = vizuGraphRec(out, op->getRight(), prof + 1, true,
+					 interligne + "          ");
+	}
+	else
+	{
+		lprof = vizuGraphRec(out, NULL, prof + 1, false,
+					 interligne + "|         ");
+		rprof = vizuGraphRec(out, NULL, prof + 1, true,
+					 interligne + "          ");
+	}
+
+	return max(lprof, rprof);
+}
+
+string CsgTree::asciiArtGraph()
+{
+	set<CsgNode *>::iterator it;
+	stringstream ss;
+
+	for (it = m_roots.begin(); it != m_roots.end(); ++it)
+		vizuGraphRec(ss, *it, 0, false, "");
+
+	return ss.str();
 }
 
 void CsgTree::printTree()

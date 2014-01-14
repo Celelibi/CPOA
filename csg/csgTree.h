@@ -21,6 +21,10 @@ private:
 	std::set<CsgNode*> m_leaves;
 	label_map_t m_label_map;
 
+	// Méthodes
+	int vizuGraphRec(std::ostream& out, CsgNode *node, int prof,
+	                 bool right, const std::string& interligne);
+
 public:
 	// Constructeurs
 	CsgTree();
@@ -31,6 +35,7 @@ public:
 	                            CsgNode*, CsgNode*);
 	virtual CsgNode* nodeFromLabel(std::string);
 	virtual std::string labelFromNode(CsgNode*);
+	virtual std::string asciiArtGraph();
 	virtual void printTree();
 };
 
