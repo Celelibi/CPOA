@@ -31,8 +31,8 @@ public:
 
 	// Autres fonctions
 	virtual void addPrimitive(CsgPrimitive*);
-	virtual void joinPrimitives(std::string, CsgOperationType,
-	                            CsgNode*, CsgNode*);
+	virtual CsgOperation* joinPrimitives(std::string, CsgOperationType,
+	                                     CsgNode*, CsgNode*);
 	virtual CsgNode* nodeFromId(int) const;
 	virtual int idFromNode(const CsgNode *) const;
 	virtual std::string asciiArtGraph() const;

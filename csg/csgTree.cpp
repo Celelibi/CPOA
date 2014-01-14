@@ -28,8 +28,8 @@ void CsgTree::addPrimitive(CsgPrimitive* primitive)
 		m_id_map[id] = primitive;
 }
 
-void CsgTree::joinPrimitives(string label, CsgOperationType optype,
-                             CsgNode* node1, CsgNode* node2)
+CsgOperation* CsgTree::joinPrimitives(string label, CsgOperationType optype,
+                                      CsgNode* node1, CsgNode* node2)
 {
 	CsgOperation *operation;
 
@@ -47,6 +47,7 @@ void CsgTree::joinPrimitives(string label, CsgOperationType optype,
 	m_leaves.erase(node2);
 
 	m_roots.insert(operation);
+	return operation;
 }
 
 CsgNode* CsgTree::nodeFromId(int id) const
