@@ -22,7 +22,7 @@ CsgRegularPolygon::CsgRegularPolygon()
 CsgRegularPolygon::CsgRegularPolygon(string label, const CsgNode* parent)
 : CsgPrimitive(label, parent), m_nbVertices(0), m_vertices(NULL)
 {
-	cout << "Created CsgRegularPolygon nb" << m_id;
+	cout << "Created CsgRegularPolygon nb " << m_id;
 	cout << " label " << m_label << endl;
 }
 
@@ -30,7 +30,7 @@ CsgRegularPolygon::CsgRegularPolygon(string label, const CsgNode* parent,
                                      Matrix33f matrix)
 : CsgPrimitive(label, parent, matrix), m_nbVertices(0), m_vertices(NULL)
 {
-	cout << "Created CsgRegularPolygon nb" << m_id;
+	cout << "Created CsgRegularPolygon nb " << m_id;
 	cout << " label " << m_label << endl;
 }
 
@@ -39,7 +39,7 @@ CsgRegularPolygon::CsgRegularPolygon(string label, const CsgNode* parent,
 : CsgPrimitive(label, parent, matrix), m_nbVertices(nbVertices), m_vertices(NULL)
 {
 	genVertices();
-	cout << "Created CsgRegularPolygon nb" << m_id;
+	cout << "Created CsgRegularPolygon nb " << m_id;
 	cout << " label " << m_label << endl;
 }
 
@@ -51,7 +51,7 @@ CsgRegularPolygon::CsgRegularPolygon(const CsgRegularPolygon& copy)
 	for (int i = 0; i < m_nbVertices; i++)
 		m_vertices[i] = copy.m_vertices[i];
 
-	cout << "Created CsgRegularPolygon nb" << m_id << " copy of nb"
+	cout << "Created CsgRegularPolygon nb " << m_id << " copy of nb"
 		<< copy.m_id << " - " << copy.m_label << endl;
 }
 
