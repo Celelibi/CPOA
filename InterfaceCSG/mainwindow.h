@@ -46,7 +46,7 @@ private:
 
 protected:
 	/// current selected node
-//	CsgNode* m_currentNode;
+	CsgNode* m_currentNode;
 
 //	/// current primitive (could be NULL)
 //	CsgPrimitive * m_prim;
@@ -64,7 +64,7 @@ protected:
 	GraphTextEdit* m_graphTextEdit;
 
 	/// current transfo matrix for storing current primitive matrix
-//	Matrix33f m_transfo;
+	Matrix33f m_transfo;
 
 //	std::vector<Matrix33f> m_transfos;
 //	std::vector<CsgPrimitive*> m_prims;

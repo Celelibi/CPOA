@@ -98,14 +98,22 @@ void MainWindow::closeEvent(QCloseEvent* event)
 
 void MainWindow::createPrimtive()
 {
-	int prim =  ui->prim_type->currentIndex();
+	CsgPrimitive *primitive;
+	int prim  = ui->prim_type->currentIndex();
 	int sides = ui->nb_sides->value();
 
 // VOTRE CODE ICI : primitive creation
-//	m_currentNode = ??
+	// 0 is "Disk" and 1 is "Polygon"
+	if (prim == 0)
+		primitive = new CsgDisk("Disk", NULL);
+	else
+		primitive = new CsgRegularPolygon("Polygon", NULL, m_transfo, sides);
+
+	m_tree.addPrimitive(primitive);
+	m_currentNode = primitive;
 
 	drawTree();
-//	ui->currentNode->setValue(??); // recupere l'id du noeud cree
+	ui->currentNode->setValue(m_currentNode->getId()); // recupere l'id du noeud cree
 	updateTextGraph();
 }
 
@@ -422,7 +430,7 @@ void MainWindow::updateTextGraph()
 	// update Graph in TextWindow
 	m_graphTextEdit->clear();
 
-	std::string str;	//	std::string str = m_tree.asciiArtGraph();
+	std::string str = m_tree.asciiArtGraph();
 	m_graphTextEdit->appendPlainText(str.c_str());
 }
 
