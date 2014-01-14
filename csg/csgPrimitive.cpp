@@ -51,3 +51,8 @@ void CsgPrimitive::setMatrix(Matrix33f val)
 {
 	m_matrix = val;
 }
+
+bool CsgPrimitive::isPrimitive()
+{
+	return false;
+}

@@ -74,6 +74,11 @@ void CsgOperation::setRight(CsgNode* val)
 	m_right = val;
 }
 
+bool CsgOperation::isPrimitive()
+{
+	return false;
+}
+
 BoundingBox CsgOperation::getBoundingBox()
 {
 	switch (m_type)

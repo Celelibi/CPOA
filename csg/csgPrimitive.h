@@ -23,8 +23,9 @@ public:
 
 	// Getters & Setters
 	virtual Matrix33f getMatrix();
-
 	virtual void setMatrix(Matrix33f);
+
+	virtual bool isPrimitive();
 };
 
 #endif // CSGPRIMITIVE_H

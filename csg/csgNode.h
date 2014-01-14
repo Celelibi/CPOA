@@ -31,6 +31,7 @@ public:
 	virtual void setLabel(std::string);
 	virtual void setParent(CsgNode*);
 
+	virtual bool isPrimitive() = 0;
 	virtual BoundingBox getBoundingBox() = 0;
 };
 

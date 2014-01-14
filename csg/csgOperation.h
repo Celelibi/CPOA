@@ -34,6 +34,7 @@ public:
 	virtual void setLeft(CsgNode*);
 	virtual void setRight(CsgNode*);
 
+	virtual bool isPrimitive();
 	virtual BoundingBox getBoundingBox();
 };
 
