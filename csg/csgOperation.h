@@ -13,26 +13,26 @@ class CsgOperation : public CsgNode
 protected:
 	// Attributs
 	CsgOperationType m_type;
-	CsgNode* m_left;
-	CsgNode* m_right;
+	const CsgNode* m_left;
+	const CsgNode* m_right;
 
 public:
 	// Constructeurs
 	CsgOperation();
-	CsgOperation(std::string, CsgNode*);
-	CsgOperation(std::string, CsgNode*, CsgOperationType, CsgNode*,
-	             CsgNode*);
+	CsgOperation(std::string, const CsgNode*);
+	CsgOperation(std::string, const CsgNode*, CsgOperationType,
+	             const CsgNode*, const CsgNode*);
 	CsgOperation(const CsgOperation&);
 	virtual ~CsgOperation();
 
 	// Getters & Setters
 	virtual CsgOperationType getType() const;
-	virtual CsgNode* getLeft() const;
-	virtual CsgNode* getRight() const;
+	virtual const CsgNode* getLeft() const;
+	virtual const CsgNode* getRight() const;
 
 	virtual void setType(CsgOperationType);
-	virtual void setLeft(CsgNode*);
-	virtual void setRight(CsgNode*);
+	virtual void setLeft(const CsgNode*);
+	virtual void setRight(const CsgNode*);
 
 	virtual bool isPrimitive() const;
 	virtual BoundingBox getBoundingBox() const;

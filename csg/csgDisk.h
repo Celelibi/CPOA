@@ -13,8 +13,8 @@ class CsgDisk : public CsgPrimitive
 public:
 	// Constructeurs
 	CsgDisk();
-	CsgDisk(std::string, CsgNode *);
-	CsgDisk(std::string, CsgNode*, Matrix33f);
+	CsgDisk(std::string, const CsgNode *);
+	CsgDisk(std::string, const CsgNode*, Matrix33f);
 	CsgDisk(const CsgDisk&);
 	virtual ~CsgDisk();
 

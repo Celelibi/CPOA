@@ -51,7 +51,7 @@ void CsgTree::joinPrimitives(string label, CsgOperationType optype,
 	m_roots.insert(operation);
 }
 
-CsgNode* CsgTree::nodeFromLabel(string label) const
+const CsgNode* CsgTree::nodeFromLabel(string label) const
 {
 	label_map_t::const_iterator it;
 	it = m_label_map.find(label);
@@ -62,12 +62,12 @@ CsgNode* CsgTree::nodeFromLabel(string label) const
 		return it->second;
 }
 
-string CsgTree::labelFromNode(CsgNode* node) const
+string CsgTree::labelFromNode(const CsgNode* node) const
 {
 	return node->getLabel();
 }
 
-int CsgTree::vizuGraphRec(ostream& out, CsgNode *node, int prof,
+int CsgTree::vizuGraphRec(ostream& out, const CsgNode *node, int prof,
 		bool right, const string& interligne) const
 {
 	int lprof;
@@ -90,7 +90,7 @@ int CsgTree::vizuGraphRec(ostream& out, CsgNode *node, int prof,
 
 	if (node->isPrimitive())
 	{
-		CsgOperation *op = dynamic_cast<CsgOperation *>(node);
+		const CsgOperation *op = dynamic_cast<const CsgOperation *>(node);
 		lprof = vizuGraphRec(out, op->getLeft(), prof + 1, false,
 					 interligne + "|         ");
 		rprof = vizuGraphRec(out, op->getRight(), prof + 1, true,
@@ -109,7 +109,7 @@ int CsgTree::vizuGraphRec(ostream& out, CsgNode *node, int prof,
 
 string CsgTree::asciiArtGraph() const
 {
-	set<CsgNode *>::iterator it;
+	set<const CsgNode *>::const_iterator it;
 	stringstream ss;
 
 	for (it = m_roots.begin(); it != m_roots.end(); ++it)
@@ -120,7 +120,7 @@ string CsgTree::asciiArtGraph() const
 
 void CsgTree::printTree() const
 {
-	std::set<CsgNode*>::iterator it;
+	std::set<const CsgNode*>::const_iterator it;
 
 	for(it = m_roots.begin() ; it != m_roots.end() ; it++)
 	{

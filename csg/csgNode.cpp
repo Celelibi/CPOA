@@ -15,7 +15,7 @@ CsgNode::CsgNode()
 	cout << "Created empty CsgNode" << endl;
 }
 
-CsgNode::CsgNode(string label, CsgNode* parent)
+CsgNode::CsgNode(string label, const CsgNode* parent)
 : m_label(label), m_id(m_idcounter++), m_parent(parent)
 {
 	cout << "Created CsgNode nb" << m_id << " label " << m_label << endl;
@@ -46,7 +46,7 @@ int CsgNode::getId() const
 	return m_id;
 }
 
-CsgNode* CsgNode::getParent() const
+const CsgNode* CsgNode::getParent() const
 {
 	return m_parent;
 }
@@ -56,7 +56,7 @@ void CsgNode::setLabel(string val)
 	m_label = val;
 }
 
-void CsgNode::setParent(CsgNode* val)
+void CsgNode::setParent(const CsgNode* val)
 {
 	m_parent = val;
 }

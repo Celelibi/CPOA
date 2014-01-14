@@ -13,15 +13,16 @@ CsgOperation::CsgOperation() : CsgNode()
 	cout << "Created empty CsgOperation" << endl;
 }
 
-CsgOperation::CsgOperation(string label, CsgNode* parent)
+CsgOperation::CsgOperation(string label, const CsgNode* parent)
 : CsgNode(label, parent)
 {
 	cout << "Created CsgOperation nb" << m_id;
 	cout << " label " << m_label << endl;
 }
 
-CsgOperation::CsgOperation(string label, CsgNode* parent, CsgOperationType
-                           type, CsgNode* left, CsgNode* right)
+CsgOperation::CsgOperation(string label, const CsgNode* parent,
+                           CsgOperationType type, const CsgNode* left,
+                           const CsgNode* right)
 : CsgNode(label, parent), m_type(type), m_left(left), m_right(right)
 {
 	cout << "Created CsgOperation nb" << m_id;
@@ -49,12 +50,12 @@ CsgOperationType CsgOperation::getType() const
 	return m_type;
 }
 
-CsgNode* CsgOperation::getLeft() const
+const CsgNode* CsgOperation::getLeft() const
 {
 	return m_left;
 }
 
-CsgNode* CsgOperation::getRight() const
+const CsgNode* CsgOperation::getRight() const
 {
 	return m_right;
 }
@@ -64,12 +65,12 @@ void CsgOperation::setType(CsgOperationType val)
 	m_type = val;
 }
 
-void CsgOperation::setLeft(CsgNode* val)
+void CsgOperation::setLeft(const CsgNode* val)
 {
 	m_left = val;
 }
 
-void CsgOperation::setRight(CsgNode* val)
+void CsgOperation::setRight(const CsgNode* val)
 {
 	m_right = val;
 }

@@ -17,13 +17,13 @@ CsgDisk::CsgDisk() : CsgPrimitive()
 	cout << "Created empty CsgDisk" << endl;
 }
 
-CsgDisk::CsgDisk(string label, CsgNode* parent)
+CsgDisk::CsgDisk(string label, const CsgNode* parent)
 : CsgPrimitive(label, parent)
 {
 	cout << "Created CsgDisk nb" << m_id << " label " << m_label << endl;
 }
 
-CsgDisk::CsgDisk(string label, CsgNode* parent, Matrix33f matrix)
+CsgDisk::CsgDisk(string label, const CsgNode* parent, Matrix33f matrix)
 : CsgPrimitive(label, parent, matrix)
 {
 	cout << "Created CsgDisk nb" << m_id << " label " << m_label << endl;

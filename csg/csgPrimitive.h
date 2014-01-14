@@ -16,8 +16,8 @@ protected:
 public:
 	// Constructeurs
 	CsgPrimitive();
-	CsgPrimitive(std::string, CsgNode*);
-	CsgPrimitive(std::string, CsgNode*, Matrix33f);
+	CsgPrimitive(std::string, const CsgNode*);
+	CsgPrimitive(std::string, const CsgNode*, Matrix33f);
 	CsgPrimitive(const CsgPrimitive&);
 	virtual ~CsgPrimitive();
 

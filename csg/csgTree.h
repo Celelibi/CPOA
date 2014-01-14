@@ -14,15 +14,15 @@ class CsgTree
 {
 private:
 	// Types
-	typedef std::map<std::string, CsgNode*> label_map_t;
+	typedef std::map<std::string, const CsgNode*> label_map_t;
 
 	// Attributs
-	std::set<CsgNode*> m_roots;
-	std::set<CsgNode*> m_leaves;
+	std::set<const CsgNode*> m_roots;
+	std::set<const CsgNode*> m_leaves;
 	label_map_t m_label_map;
 
 	// Méthodes
-	int vizuGraphRec(std::ostream& out, CsgNode *node, int prof,
+	int vizuGraphRec(std::ostream& out, const CsgNode *node, int prof,
 	                 bool right, const std::string& interligne) const;
 
 public:
@@ -33,8 +33,8 @@ public:
 	virtual void addPrimitive(CsgPrimitive*);
 	virtual void joinPrimitives(std::string, CsgOperationType,
 	                            CsgNode*, CsgNode*);
-	virtual CsgNode* nodeFromLabel(std::string) const;
-	virtual std::string labelFromNode(CsgNode*) const;
+	virtual const CsgNode* nodeFromLabel(std::string) const;
+	virtual std::string labelFromNode(const CsgNode *) const;
 	virtual std::string asciiArtGraph() const;
 	virtual void printTree() const;
 };

@@ -13,14 +13,14 @@ CsgPrimitive::CsgPrimitive() : CsgNode()
 	cout << "Created empty CsgPrimitive" << endl;
 }
 
-CsgPrimitive::CsgPrimitive(string label, CsgNode* parent)
+CsgPrimitive::CsgPrimitive(string label, const CsgNode* parent)
 : CsgNode(label, parent)
 {
 	cout << "Created CsgPrimitive nb" << m_id;
 	cout << " label " << m_label << endl;
 }
 
-CsgPrimitive::CsgPrimitive(string label, CsgNode* parent, Matrix33f matrix)
+CsgPrimitive::CsgPrimitive(string label, const CsgNode* parent, Matrix33f matrix)
 : CsgNode(label, parent), m_matrix(matrix)
 {
 	cout << "Created CsgPrimitive nb" << m_id;
