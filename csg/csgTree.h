@@ -23,7 +23,7 @@ private:
 
 	// Méthodes
 	int vizuGraphRec(std::ostream& out, CsgNode *node, int prof,
-	                 bool right, const std::string& interligne);
+	                 bool right, const std::string& interligne) const;
 
 public:
 	// Constructeurs
@@ -33,10 +33,10 @@ public:
 	virtual void addPrimitive(CsgPrimitive*);
 	virtual void joinPrimitives(std::string, CsgOperationType,
 	                            CsgNode*, CsgNode*);
-	virtual CsgNode* nodeFromLabel(std::string);
-	virtual std::string labelFromNode(CsgNode*);
-	virtual std::string asciiArtGraph();
-	virtual void printTree();
+	virtual CsgNode* nodeFromLabel(std::string) const;
+	virtual std::string labelFromNode(CsgNode*) const;
+	virtual std::string asciiArtGraph() const;
+	virtual void printTree() const;
 };
 
 #endif // CSGTREE_H

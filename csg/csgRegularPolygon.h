@@ -28,11 +28,11 @@ public:
 	virtual ~CsgRegularPolygon();
 
 	// Getters & Setters
-	virtual int getNbVertices();
-	virtual const Vec3f* getVertices();
+	virtual int getNbVertices() const;
+	virtual const Vec3f* getVertices() const;
 	virtual void setNbVertices(int);
 
-	virtual BoundingBox getBoundingBox();
+	virtual BoundingBox getBoundingBox() const;
 };
 
 #endif // CSGREGULARPOLYGON_H

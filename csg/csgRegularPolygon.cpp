@@ -63,12 +63,12 @@ CsgRegularPolygon::~CsgRegularPolygon()
 }
 
 // Getters & Setters
-int CsgRegularPolygon::getNbVertices()
+int CsgRegularPolygon::getNbVertices() const
 {
 	return m_nbVertices;
 }
 
-const Vec3f* CsgRegularPolygon::getVertices()
+const Vec3f* CsgRegularPolygon::getVertices() const
 {
 	return m_vertices;
 }
@@ -79,7 +79,7 @@ void CsgRegularPolygon::setNbVertices(int val)
 	genVertices();
 }
 
-BoundingBox CsgRegularPolygon::getBoundingBox()
+BoundingBox CsgRegularPolygon::getBoundingBox() const
 {
 	BoundingBox ret;
 	Matrix33f mat = getMatrix();

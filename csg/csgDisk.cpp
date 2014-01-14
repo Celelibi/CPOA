@@ -43,7 +43,7 @@ CsgDisk::~CsgDisk()
 	cout << "Destroyed CsgDisk nb" << m_id << " label " << m_label << endl;
 }
 
-BoundingBox CsgDisk::getBoundingBox()
+BoundingBox CsgDisk::getBoundingBox() const
 {
 	BoundingBox ret;
 	Matrix33f mat = getMatrix();

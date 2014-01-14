@@ -32,22 +32,22 @@ BoundingBox::BoundingBox(const BoundingBox& copy)
 
 // Getters & Setters
 
-float BoundingBox::getXmin()
+float BoundingBox::getXmin() const
 {
 	return m_xmin;
 }
 
-float BoundingBox::getXmax()
+float BoundingBox::getXmax() const
 {
 	return m_xmax;
 }
 
-float BoundingBox::getYmin()
+float BoundingBox::getYmin() const
 {
 	return m_ymin;
 }
 
-float BoundingBox::getYmax()
+float BoundingBox::getYmax() const
 {
 	return m_ymax;
 }
@@ -96,18 +96,18 @@ void BoundingBox::addPoint(float x, float y)
 
 // Surcharge d'opérateurs
 
-BoundingBox BoundingBox::operator+(const BoundingBox box)
+BoundingBox BoundingBox::operator+(const BoundingBox box) const
 {
 	return BoundingBox(min(m_xmin, box.m_xmin), max(m_xmax, box.m_xmax),
 	                   min(m_ymin, box.m_ymin), max(m_ymax, box.m_ymax));
 }
 
-BoundingBox BoundingBox::operator-(const BoundingBox box)
+BoundingBox BoundingBox::operator-(const BoundingBox box) const
 {
 	return BoundingBox(*this);
 }
 
-BoundingBox BoundingBox::operator^(const BoundingBox box)
+BoundingBox BoundingBox::operator^(const BoundingBox box) const
 {
 	return BoundingBox(max(m_xmin, box.m_xmin), min(m_xmax, box.m_xmax),
 	                   max(m_ymin, box.m_ymin), min(m_ymax, box.m_ymax));

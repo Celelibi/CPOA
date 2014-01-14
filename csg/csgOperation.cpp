@@ -44,17 +44,17 @@ CsgOperation::~CsgOperation()
 
 // Getters & Setters
 
-CsgOperationType CsgOperation::getType()
+CsgOperationType CsgOperation::getType() const
 {
 	return m_type;
 }
 
-CsgNode* CsgOperation::getLeft()
+CsgNode* CsgOperation::getLeft() const
 {
 	return m_left;
 }
 
-CsgNode* CsgOperation::getRight()
+CsgNode* CsgOperation::getRight() const
 {
 	return m_right;
 }
@@ -74,12 +74,12 @@ void CsgOperation::setRight(CsgNode* val)
 	m_right = val;
 }
 
-bool CsgOperation::isPrimitive()
+bool CsgOperation::isPrimitive() const
 {
 	return false;
 }
 
-BoundingBox CsgOperation::getBoundingBox()
+BoundingBox CsgOperation::getBoundingBox() const
 {
 	switch (m_type)
 	{

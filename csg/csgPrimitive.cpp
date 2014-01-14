@@ -42,7 +42,7 @@ CsgPrimitive::~CsgPrimitive()
 }
 
 // Getters & Setters
-Matrix33f CsgPrimitive::getMatrix()
+Matrix33f CsgPrimitive::getMatrix() const
 {
 	return m_matrix;
 }
@@ -52,7 +52,7 @@ void CsgPrimitive::setMatrix(Matrix33f val)
 	m_matrix = val;
 }
 
-bool CsgPrimitive::isPrimitive()
+bool CsgPrimitive::isPrimitive() const
 {
 	return false;
 }

@@ -51,9 +51,9 @@ void CsgTree::joinPrimitives(string label, CsgOperationType optype,
 	m_roots.insert(operation);
 }
 
-CsgNode* CsgTree::nodeFromLabel(string label)
+CsgNode* CsgTree::nodeFromLabel(string label) const
 {
-	label_map_t::iterator it;
+	label_map_t::const_iterator it;
 	it = m_label_map.find(label);
 
 	if (it == m_label_map.end())
@@ -62,13 +62,13 @@ CsgNode* CsgTree::nodeFromLabel(string label)
 		return it->second;
 }
 
-string CsgTree::labelFromNode(CsgNode* node)
+string CsgTree::labelFromNode(CsgNode* node) const
 {
 	return node->getLabel();
 }
 
 int CsgTree::vizuGraphRec(ostream& out, CsgNode *node, int prof,
-		bool right, const string& interligne)
+		bool right, const string& interligne) const
 {
 	int lprof;
 	int rprof;
@@ -107,7 +107,7 @@ int CsgTree::vizuGraphRec(ostream& out, CsgNode *node, int prof,
 	return max(lprof, rprof);
 }
 
-string CsgTree::asciiArtGraph()
+string CsgTree::asciiArtGraph() const
 {
 	set<CsgNode *>::iterator it;
 	stringstream ss;
@@ -118,7 +118,7 @@ string CsgTree::asciiArtGraph()
 	return ss.str();
 }
 
-void CsgTree::printTree()
+void CsgTree::printTree() const
 {
 	std::set<CsgNode*>::iterator it;
 

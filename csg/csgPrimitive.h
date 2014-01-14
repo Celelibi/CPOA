@@ -22,10 +22,10 @@ public:
 	virtual ~CsgPrimitive();
 
 	// Getters & Setters
-	virtual Matrix33f getMatrix();
+	virtual Matrix33f getMatrix() const;
 	virtual void setMatrix(Matrix33f);
 
-	virtual bool isPrimitive();
+	virtual bool isPrimitive() const;
 };
 
 #endif // CSGPRIMITIVE_H

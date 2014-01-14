@@ -36,17 +36,17 @@ CsgNode::~CsgNode()
 }
 
 // Getters & Setters
-string CsgNode::getLabel()
+string CsgNode::getLabel() const
 {
 	return m_label;
 }
 
-int CsgNode::getId()
+int CsgNode::getId() const
 {
 	return m_id;
 }
 
-CsgNode* CsgNode::getParent()
+CsgNode* CsgNode::getParent() const
 {
 	return m_parent;
 }

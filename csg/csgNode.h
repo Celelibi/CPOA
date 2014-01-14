@@ -24,15 +24,15 @@ public:
 	virtual ~CsgNode();
 
 	// Getters & Setters
-	virtual std::string getLabel();
-	virtual int getId();
-	virtual CsgNode* getParent();
+	virtual std::string getLabel() const;
+	virtual int getId() const;
+	virtual CsgNode* getParent() const;
 
 	virtual void setLabel(std::string);
 	virtual void setParent(CsgNode*);
 
-	virtual bool isPrimitive() = 0;
-	virtual BoundingBox getBoundingBox() = 0;
+	virtual bool isPrimitive() const = 0;
+	virtual BoundingBox getBoundingBox() const = 0;
 };
 
 #endif // CSGNODE_H

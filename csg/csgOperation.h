@@ -26,16 +26,16 @@ public:
 	virtual ~CsgOperation();
 
 	// Getters & Setters
-	virtual CsgOperationType getType();
-	virtual CsgNode* getLeft();
-	virtual CsgNode* getRight();
+	virtual CsgOperationType getType() const;
+	virtual CsgNode* getLeft() const;
+	virtual CsgNode* getRight() const;
 
 	virtual void setType(CsgOperationType);
 	virtual void setLeft(CsgNode*);
 	virtual void setRight(CsgNode*);
 
-	virtual bool isPrimitive();
-	virtual BoundingBox getBoundingBox();
+	virtual bool isPrimitive() const;
+	virtual BoundingBox getBoundingBox() const;
 };
 
 #endif // CSGOPERATION_H

@@ -18,7 +18,7 @@ public:
 	CsgDisk(const CsgDisk&);
 	virtual ~CsgDisk();
 
-	virtual BoundingBox getBoundingBox();
+	virtual BoundingBox getBoundingBox() const;
 };
 
 #endif // CSGDISK_H
