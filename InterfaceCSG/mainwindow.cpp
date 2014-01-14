@@ -129,32 +129,38 @@ void MainWindow::createOperation()
 	std::cout << " child: "<< left << " & "<< right;
 	std::cout << std::endl;
 
-//	CsgOperation* oper=NULL;
+	CsgOperation* oper = NULL;
+	CsgNode* leftnode = m_tree.nodeFromId(left);
+	CsgNode* rightnode = m_tree.nodeFromId(right);
+
+	// Ici on recupère les deux fils à partir des identifiants et on crée le noeud operation correspondant
 	switch(typeOp)
 	{
-//			Ici on recupère les deux fils à partir des identifiants et on crée le noeud operation correspondant
-		case 0:
+	case 0:
+		oper = m_tree.joinPrimitives("Union", UNION, leftnode, rightnode);
+		break;
 
-			break;
-		case 1:
+	case 1:
+		oper = m_tree.joinPrimitives("Intersection", INTERSECT, leftnode, rightnode);
+		break;
 
-			break;
-		case 2:
+	case 2:
+		oper = m_tree.joinPrimitives("Difference", DIFF, leftnode, rightnode);
+		break;
 
-			break;
-		default:
-			std::cerr << "unknown operation" << std::endl;
-			return;
-			break;
+	default:
+		std::cerr << "unknown operation" << std::endl;
+		return;
 	};
 
 
 	drawTree();
 
-//	if (oper != NULL)
-//		ui->currentNode->setValue(oper->getId());
-
-//	m_currentNode = oper;
+	if (oper != NULL)
+	{
+		ui->currentNode->setValue(oper->getId());
+		m_currentNode = oper;
+	}
 
 	updateTextGraph();
 
