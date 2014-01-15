@@ -40,6 +40,12 @@ CsgOperation::CsgOperation(const CsgOperation& copy)
 // Destructeur
 CsgOperation::~CsgOperation()
 {
+	if (m_left != NULL)
+		delete m_left;
+
+	if (m_right != NULL)
+		delete m_right;
+
 	cout << "CsgOperation: Destroyed CsgOperation nb " << m_id << " label ";
 	cout << m_label << endl;
 }
