@@ -39,6 +39,9 @@ void RenderImg::loadTexture(const std::string& filename)
 	int minw = m_img.getWidth();
 	m_heightTex = m_img.getHeight();
 
+	if (minw == 0 && m_heightTex == 0)
+		return;
+
 	// Roundup to 4
 	m_widthTex = 4 * (minw + 3) / 4;
 
