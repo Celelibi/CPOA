@@ -8,10 +8,13 @@ QT       += core gui opengl widgets
 
 #greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+CONFIG += debug
 TARGET = InterfaceCSG
 TEMPLATE = app
 
 QMAKE_CXXFLAGS += -Wall
+QMAKE_CXXFLAGS_DEBUG -= -g
+QMAKE_CXXFLAGS_DEBUG += -ggdb
 
 INCLUDEPATH += ../vectorMatrix ../image ../csg ../particle
 

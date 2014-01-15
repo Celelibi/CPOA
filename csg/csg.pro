@@ -1,10 +1,12 @@
 
 TARGET = csg
 TEMPLATE = lib
-CONFIG += staticlib
+CONFIG += staticlib debug
 
 QMAKE_CXXFLAGS += -Wall
 QMAKE_CXXFLAGS += -DNO_TEMPLATE_IMPLEMENTATION
+QMAKE_CXXFLAGS_DEBUG -= -g
+QMAKE_CXXFLAGS_DEBUG += -ggdb
 
 INCLUDEPATH += ../vectorMatrix ../image
 
