@@ -78,6 +78,12 @@ void RenderImg::updateDataTexture()
 }
 
 
+void RenderImg::setPixel(int x, int y, unsigned char c)
+{
+	m_img.getDataPtr()[y * m_img.getWidth() + x] = c;
+}
+
+
 Image2grey& RenderImg::getImg()
 {
 	return m_img;

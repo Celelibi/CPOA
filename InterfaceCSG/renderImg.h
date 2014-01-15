@@ -20,6 +20,7 @@ public:
 
 	void loadTexture(const std::string& filename);
 	void updateDataTexture();
+	void setPixel(int x, int y, unsigned char c);
 
 	Image2grey& getImg();
 	unsigned int getWidth();
