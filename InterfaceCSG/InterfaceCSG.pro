@@ -20,7 +20,7 @@ INCLUDEPATH += ../vectorMatrix ../image ../csg ../particle
 
 LIBS +=  -L ../lib \
 	-lcsg   \
-#	-limage \
+	-limage \
 	-lvectorMatrix \
 #	-lparticle \
 	-lboost_thread

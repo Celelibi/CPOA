@@ -3,11 +3,11 @@
 
 #include <QGLWidget>
 
-//#include "image2grey.h"
+#include "image2grey.h"
 //#include "vec2f.h"
 //#include "particle.h"
 
-//fprward declaration
+//forward declaration
 class BoundingBox;
 
 class RenderImg : public QGLWidget
@@ -91,8 +91,10 @@ protected:
 	void drawSobel();
 
 //	ici les declaration de:
-//   - l'image a niveau de gris
-//	 - l'image gradiant'
+//	- l'image a niveau de gris
+//	- l'image gradiant'
+
+	Image2grey m_img;
 
 //	 la fontaine de particule
 //	Fountain fountain;

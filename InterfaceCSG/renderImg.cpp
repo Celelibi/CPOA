@@ -2,6 +2,7 @@
 #include <QMouseEvent>
 #include <iostream>
 
+#include "image2grey.h"
 //#include "imgGradient.h"
 //#include "boundingbox.h"
 
@@ -15,7 +16,8 @@ RenderImg::RenderImg( QWidget *parent ):
 	m_heightTex(0),
 	m_ptrTex(NULL),
 	m_drawSobel(false),
-	m_BBdraw(false)
+	m_BBdraw(false),
+	m_img()
   // QQ INIT A AJOUTER ?
 
 {
@@ -27,7 +29,26 @@ RenderImg::RenderImg( QWidget *parent ):
 
 void RenderImg::loadTexture(const std::string& filename)
 {
-	// VOTRE CODE ICI
+	// NOTRE CODE ICI
+	size_t m_size;
+	m_img.loadPGMascii(filename);
+
+	if (m_ptrTex != NULL)
+		delete m_ptrTex;
+
+	m_widthTex = m_img.getWidth();
+	m_heightTex = m_img.getHeight();
+
+	m_size = m_widthTex * m_heightTex;
+	if (m_size / m_heightTex != (size_t)m_widthTex)
+		throw "RenderImg: Image too big";
+
+	m_ptrTex = new unsigned char[m_size];
+	for (int y = 0; y < m_heightTex; y++)
+	{
+		for (int x = 0; x < m_widthTex; x++)
+			m_ptrTex[y * m_widthTex + x] = m_img.getPixel(x, y);
+	}
 
 	glBindTexture(GL_TEXTURE_2D, m_texture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, m_widthTex, m_heightTex, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, m_ptrTex);
@@ -165,7 +186,7 @@ void RenderImg::mousePressEvent(QMouseEvent *event)
 	glBegin(GL_POINTS);
 
 	unsigned int nbp = 0;// VOTRE CODE ICI : nombre de particules
-	for (int i = 0; i < nbp; i++ )
+	for (unsigned i = 0; i < nbp; i++ )
 	{
 		// here get back position of each particle in ptPos
 //		glVertex2f(2.0f*ptPos[0]/m_widthTex-1.0f, -2.0f*ptPos[1]/m_heightTex+1.0f);
