@@ -54,5 +54,5 @@ void CsgPrimitive::setMatrix(Matrix33f val)
 
 bool CsgPrimitive::isPrimitive() const
 {
-	return false;
+	return true;
 }
