@@ -6,6 +6,7 @@
 #include <sstream>
 #include <cmath>
 
+#include "renderImg.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -17,7 +18,7 @@
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
 	ui(new Ui::MainWindow),
-//	m_currentNode(NULL),
+	m_currentNode(NULL),
 //	m_prim(NULL),
 //	m_oper(NULL),
 	m_graphTextEdit(NULL),
@@ -102,7 +103,7 @@ void MainWindow::createPrimtive()
 	int prim  = ui->prim_type->currentIndex();
 	int sides = ui->nb_sides->value();
 
-// VOTRE CODE ICI : primitive creation
+// NOTRE CODE ICI : primitive creation
 	// 0 is "Disk" and 1 is "Polygon"
 	if (prim == 0)
 		primitive = new CsgDisk("Disk", NULL);
@@ -358,7 +359,7 @@ void MainWindow::saveCSG()
 
 void MainWindow::clearCSG()
 {
-	// VOTRE CODE ICI
+	// NOTRE CODE ICI
 
 	m_tree.clear();
 	updateTextGraph();
@@ -379,9 +380,9 @@ void MainWindow::drawTree()
 {
 	m_render->clean();
 
-	// VOTRE CODE ICI (trace le graph dans l'image de m_render
+	// VOTRE CODE ICI (trace le graph dans l'image de m_render)
 
-	if (ui->checkBox_drawCurrent->isChecked()/* && m_currentNode!=NULL*/)
+	if (ui->checkBox_drawCurrent->isChecked() && m_currentNode != NULL)
 	{
 		// OPTION: trace le noeud courant dans l'image de m_render
 		// VOTRE CODE ICI
@@ -444,7 +445,7 @@ void MainWindow::updateTextGraph()
 
 void MainWindow::currentNodeChanged(int id)
 {
-//	m_currentNode = m_tree.fromId(id);
+	m_currentNode = m_tree.nodeFromId(id);
 
 // VOTRE CODE ICI
 

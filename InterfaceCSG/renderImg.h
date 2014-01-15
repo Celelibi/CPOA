@@ -62,7 +62,7 @@ protected:
 	// convert from image coordinate to GL coordinates (y)
 	inline float yImg2GL(float y)
 	{
-		return 1.0f - (2.0f*y)/float(m_heightTex-1);// minus because of GL is bottom to up and image up to boytom
+		return 1.0f - (2.0f*y)/float(m_heightTex-1);// minus because of GL is bottom to top and image top to bottom
 	}
 
 
