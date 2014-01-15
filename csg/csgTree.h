@@ -38,6 +38,7 @@ public:
 	virtual int idFromNode(const CsgNode *) const;
 	virtual std::string asciiArtGraph() const;
 	virtual void printTree() const;
+	virtual void clear();
 };
 
 #endif // CSGTREE_H

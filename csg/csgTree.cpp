@@ -155,3 +155,20 @@ void CsgTree::printTree() const
 		cout << endl;
 	}
 }
+
+void CsgTree::clear()
+{
+	set<const CsgNode *>::const_iterator it;
+
+	for (it = m_roots.begin(); it != m_roots.end(); ++it)
+		delete *it;
+
+	m_roots.clear();
+
+	for (it = m_leaves.begin(); it != m_leaves.end(); ++it)
+		delete *it;
+
+	m_leaves.clear();
+
+	m_id_map.clear();
+}
