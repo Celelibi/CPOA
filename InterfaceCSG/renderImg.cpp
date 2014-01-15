@@ -75,6 +75,12 @@ void RenderImg::updateDataTexture()
 }
 
 
+Image2grey& RenderImg::getImg()
+{
+	return m_img;
+}
+
+
 unsigned int RenderImg::getWidth()
 {
 	return m_widthTex; // RETURN IMAGE WIDTH

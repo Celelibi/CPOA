@@ -21,7 +21,7 @@ public:
 	void loadTexture(const std::string& filename);
 	void updateDataTexture();
 
-//	Image2grey & getImg();
+	Image2grey& getImg();
 	unsigned int getWidth();
 	unsigned int getHeight();
 
