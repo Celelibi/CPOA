@@ -87,7 +87,7 @@ int CsgTree::vizuGraphRec(ostream& out, const CsgNode *node, int prof,
 
 	out << " --> " << node->getLabel();
 
-	if (node->isPrimitive())
+	if (!node->isPrimitive())
 	{
 		const CsgOperation *op = dynamic_cast<const CsgOperation *>(node);
 		lprof = vizuGraphRec(out, op->getLeft(), prof + 1, false,
