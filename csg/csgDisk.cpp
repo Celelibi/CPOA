@@ -63,3 +63,14 @@ BoundingBox CsgDisk::getBoundingBox() const
 
 	return ret;
 }
+
+bool CsgDisk::intersect(int x, int y) const
+{
+	Vec3f v(x, y, 1);
+	Matrix33f inv = getMatrix().inverse();
+	v = inv * v;
+	float fx = v[0];
+	float fy = v[1];
+
+	return (fx*fx + fy*fy <= 0.25);
+}

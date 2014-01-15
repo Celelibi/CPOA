@@ -10,12 +10,14 @@ using namespace std;
 // Constructeurs
 CsgPrimitive::CsgPrimitive() : CsgNode()
 {
+	m_matrix.setIdentity();
 	cout << "CsgPrimitive: Created empty CsgPrimitive" << endl;
 }
 
 CsgPrimitive::CsgPrimitive(string label, const CsgNode* parent)
 : CsgNode(label, parent)
 {
+	m_matrix.setIdentity();
 	cout << "CsgPrimitive: Created CsgPrimitive nb " << m_id;
 	cout << " label " << m_label << endl;
 }

@@ -33,6 +33,7 @@ public:
 	virtual void setNbVertices(int);
 
 	virtual BoundingBox getBoundingBox() const;
+	virtual bool intersect(int x, int y) const;
 };
 
 #endif // CSGREGULARPOLYGON_H

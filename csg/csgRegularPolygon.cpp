@@ -120,3 +120,14 @@ void CsgRegularPolygon::genVertices()
 		m_vertices[i] = Vec3f(cos(a) / 2, sin(a) / 2, 1);
 	}
 }
+
+bool CsgRegularPolygon::intersect(int x, int y) const
+{
+	Vec3f v(x, y, 1);
+	Matrix33f inv = getMatrix().inverse();
+	v = inv * v;
+	float fx = v[0];
+	float fy = v[1];
+
+	return (fx > 0 && fx < 1 && fy > 0 && fy < 1);
+}

@@ -58,11 +58,11 @@ void RenderImg::loadTexture(const std::string& filename)
 			m_ptrTex[y * m_widthTex + x] = m_img.getDataPtr()[y * minw + x];
 	}
 
-	initializeGL();
-
+	glInit();
 	glBindTexture(GL_TEXTURE_2D, m_texture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, m_widthTex, m_heightTex, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, m_ptrTex);
 	glBindTexture(GL_TEXTURE_2D, 0);
+	glDraw();
 }
 
 
@@ -70,17 +70,28 @@ void RenderImg::loadTexture(const std::string& filename)
 void RenderImg::updateDataTexture()
 {
 	// VOTRE CODE ICI
-
+	glInit();
 	glBindTexture(GL_TEXTURE_2D, m_texture);
 	glTexSubImage2D(GL_TEXTURE_2D,0,0,0,m_widthTex, m_heightTex, GL_LUMINANCE, GL_UNSIGNED_BYTE, m_ptrTex);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	updateGL();
+	glDraw();
 }
 
 
 void RenderImg::setPixel(int x, int y, unsigned char c)
 {
-	m_img.getDataPtr()[y * m_img.getWidth() + x] = c;
+	if (m_widthTex == 0 || m_heightTex == 0)
+	{
+		m_widthTex = m_winW;
+		m_heightTex = m_winH;
+		m_widthTex = 4 * (m_widthTex + 3) / 4;
+		m_ptrTex = new unsigned char[m_widthTex * m_heightTex];
+		clean();
+	}
+
+	assert(y >= 0 && y < m_heightTex && x >= 0 && x < m_widthTex);
+
+	m_ptrTex[y * getWidth() + x] = c;
 }
 
 
@@ -92,12 +103,18 @@ Image2grey& RenderImg::getImg()
 
 unsigned int RenderImg::getWidth()
 {
+	if (m_widthTex == 0 || m_heightTex == 0)
+		return 4 * (m_winW + 3) / 4;
+
 	return m_widthTex; // RETURN IMAGE WIDTH
 }
 
 unsigned int RenderImg::getHeight()
 {
-		return m_heightTex; // RETURN IMAGE HEIGHT
+	if (m_widthTex == 0 || m_heightTex == 0)
+		return m_winH;
+
+	return m_heightTex; // RETURN IMAGE HEIGHT
 }
 
 RenderImg::~RenderImg()
@@ -252,15 +269,7 @@ void RenderImg::keyReleaseEvent(QKeyEvent* event)
 
 void RenderImg::clean()
 {
-    unsigned char* ptr=m_ptrTex;
-
-	for (int i=0; i<m_heightTex; ++i)
-	{
-		for (int j=0; j<m_widthTex; ++j)
-		{
-			*ptr++ = 0;
-		}
-	}
+	memset(m_ptrTex, 255, sizeof(*m_ptrTex) * m_widthTex * m_heightTex);
 }
 
 

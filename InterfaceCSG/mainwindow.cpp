@@ -375,12 +375,30 @@ void MainWindow::clone()
 	drawTree();
 }
 
-
 void MainWindow::drawTree()
 {
+	size_t npix, cnt = 0;
+	size_t w, h;
 	m_render->clean();
 
-	// VOTRE CODE ICI (trace le graph dans l'image de m_render)
+	h = m_render->getHeight();
+	w = m_render->getWidth();
+	npix = h * w;
+	std::cout << "trying to render " << npix  << " pixels" << std::endl;
+
+	// NOTRE CODE ICI (trace le graph dans l'image de m_render)
+	for (size_t y = 0; y < m_render->getHeight(); y++)
+	{
+		assert(m_render->getHeight() == h);
+		for (size_t x = 0; x < m_render->getWidth(); x++)
+		{
+			assert(m_render->getWidth() == w);
+			if (m_tree.intersect(x, y))
+				m_render->setPixel(x, y, 0);
+			else
+				m_render->setPixel(x, y, 255);
+		}
+	}
 
 	if (ui->checkBox_drawCurrent->isChecked() && m_currentNode != NULL)
 	{

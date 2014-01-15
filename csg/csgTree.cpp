@@ -172,3 +172,22 @@ void CsgTree::clear()
 
 	m_id_map.clear();
 }
+
+bool CsgTree::intersect(int x, int y) const
+{
+	set<const CsgNode *>::const_iterator it;
+
+	for (it = m_roots.begin(); it != m_roots.end(); ++it)
+	{
+		if ((*it)->intersect(x, y))
+			return true;
+	}
+
+	for (it = m_leaves.begin(); it != m_leaves.end(); ++it)
+	{
+		if ((*it)->intersect(x, y))
+			return true;
+	}
+
+	return false;
+}

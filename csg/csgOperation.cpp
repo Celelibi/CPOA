@@ -104,3 +104,21 @@ BoundingBox CsgOperation::getBoundingBox() const
 		throw "WTF is this operation type?";
 	}
 }
+
+bool CsgOperation::intersect(int x, int y) const
+{
+	switch (m_type)
+	{
+	case INTERSECT:
+		return m_left->intersect(x, y) && m_right->intersect(x, y);
+		break;
+	case UNION:
+		return m_left->intersect(x, y) || m_right->intersect(x, y);
+		break;
+	case DIFF:
+		return m_left->intersect(x, y) && !m_right->intersect(x, y);
+		break;
+	default:
+		throw "WTF is this operation type?";
+	}
+}

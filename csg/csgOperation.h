@@ -36,6 +36,7 @@ public:
 
 	virtual bool isPrimitive() const;
 	virtual BoundingBox getBoundingBox() const;
+	virtual bool intersect(int x, int y) const;
 };
 
 #endif // CSGOPERATION_H

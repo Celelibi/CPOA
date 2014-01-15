@@ -19,6 +19,7 @@ public:
 	virtual ~CsgDisk();
 
 	virtual BoundingBox getBoundingBox() const;
+	virtual bool intersect(int x, int y) const;
 };
 
 #endif // CSGDISK_H

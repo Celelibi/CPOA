@@ -39,6 +39,7 @@ public:
 	virtual std::string asciiArtGraph() const;
 	virtual void printTree() const;
 	virtual void clear();
+	virtual bool intersect(int x, int y) const;
 };
 
 #endif // CSGTREE_H

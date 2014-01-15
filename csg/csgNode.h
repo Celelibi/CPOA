@@ -33,6 +33,7 @@ public:
 
 	virtual bool isPrimitive() const = 0;
 	virtual BoundingBox getBoundingBox() const = 0;
+	virtual bool intersect(int x, int y) const = 0;
 };
 
 #endif // CSGNODE_H
