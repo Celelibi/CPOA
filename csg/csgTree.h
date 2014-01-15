@@ -22,8 +22,9 @@ private:
 	id_map_t m_id_map;
 
 	// Méthodes
-	int vizuGraphRec(std::ostream& out, const CsgNode *node, int prof,
-	                 bool right, const std::string& interligne) const;
+	void vizuGraphRec(std::ostream& out, const CsgNode *node,
+	                  const std::string& indentthis,
+	                  const std::string& indentrec) const;
 
 public:
 	// Constructeurs
