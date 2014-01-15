@@ -10,13 +10,13 @@ using namespace std;
 // Constructeurs
 CsgOperation::CsgOperation() : CsgNode()
 {
-	cout << "Created empty CsgOperation" << endl;
+	cout << "CsgOperation: Created empty CsgOperation" << endl;
 }
 
 CsgOperation::CsgOperation(string label, const CsgNode* parent)
 : CsgNode(label, parent)
 {
-	cout << "Created CsgOperation nb" << m_id;
+	cout << "CsgOperation: Created CsgOperation nb " << m_id;
 	cout << " label " << m_label << endl;
 }
 
@@ -25,7 +25,7 @@ CsgOperation::CsgOperation(string label, const CsgNode* parent,
                            const CsgNode* right)
 : CsgNode(label, parent), m_type(type), m_left(left), m_right(right)
 {
-	cout << "Created CsgOperation nb" << m_id;
+	cout << "CsgOperation: Created CsgOperation nb " << m_id;
 	cout << " label " << m_label << endl;
 }
 
@@ -33,14 +33,15 @@ CsgOperation::CsgOperation(string label, const CsgNode* parent,
 CsgOperation::CsgOperation(const CsgOperation& copy)
 : CsgNode(copy)
 {
-	cout << "Created CsgOperation nb" << m_id << " copy of nb"
-		<< copy.m_id << " label " << copy.m_label << endl;
+	cout << "CsgOperation: Created CsgOperation nb " << m_id;
+	cout << " copy of nb" << copy.m_id << " label " << copy.m_label << endl;
 }
 
 // Destructeur
 CsgOperation::~CsgOperation()
 {
-	cout << "Destroyed CsgOperation nb" << m_id << " label " << m_label << endl;
+	cout << "CsgOperation: Destroyed CsgOperation nb " << m_id << " label ";
+	cout << m_label << endl;
 }
 
 // Getters & Setters

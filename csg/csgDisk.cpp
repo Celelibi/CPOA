@@ -14,33 +14,36 @@ using namespace std;
 
 CsgDisk::CsgDisk() : CsgPrimitive()
 {
-	cout << "Created empty CsgDisk" << endl;
+	cout << "CsgDisk: Created empty CsgDisk" << endl;
 }
 
 CsgDisk::CsgDisk(string label, const CsgNode* parent)
 : CsgPrimitive(label, parent)
 {
-	cout << "Created CsgDisk nb " << m_id << " label " << m_label << endl;
+	cout << "CsgDisk: Created CsgDisk nb " << m_id;
+	cout << " label " << m_label << endl;
 }
 
 CsgDisk::CsgDisk(string label, const CsgNode* parent, Matrix33f matrix)
 : CsgPrimitive(label, parent, matrix)
 {
-	cout << "Created CsgDisk nb " << m_id << " label " << m_label << endl;
+	cout << "CsgDisk: Created CsgDisk nb " << m_id;
+	cout << " label " << m_label << endl;
 }
 
 // Constructeur de copie
 	CsgDisk::CsgDisk(const CsgDisk& copy)
 : CsgPrimitive(copy)
 {
-	cout << "Created CsgDisk nb " << m_id << " copy of nb ";
+	cout << "CsgDisk: Created CsgDisk nb " << m_id << " copy of nb ";
 	cout << copy.m_id << " label " << copy.m_label << endl;
 }
 
 // Destructeur
 CsgDisk::~CsgDisk()
 {
-	cout << "Destroyed CsgDisk nb " << m_id << " label " << m_label << endl;
+	cout << "CsgDisk: Destroyed CsgDisk nb " << m_id;
+	cout << " label " << m_label << endl;
 }
 
 BoundingBox CsgDisk::getBoundingBox() const
