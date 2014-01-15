@@ -360,6 +360,7 @@ void MainWindow::clearCSG()
 {
 	// VOTRE CODE ICI
 
+	m_tree.clear();
 	updateTextGraph();
 	drawTree();
 }
