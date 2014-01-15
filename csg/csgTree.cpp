@@ -33,6 +33,39 @@ CsgOperation* CsgTree::joinPrimitives(string label, CsgOperationType optype,
 {
 	CsgOperation *operation;
 
+
+	if (node1 == node2)
+	{
+		cerr << "CsgTree:::joinPrimitives: ";
+		cerr << "Can't join a node with itself" << endl;
+		return NULL;
+	}
+
+	if (m_roots.find(node1) == m_roots.end() &&
+	    m_leaves.find(node1) == m_leaves.end())
+	{
+		cerr << "CsgTree::joinPrimitives: ";
+		cerr << "Left node (" << node1->getId() << ") ";
+		if (nodeFromId(node1->getId()) == NULL)
+			cerr << "is not known yet, call addPrimitive" << endl;
+		else
+			cerr << "already belong to a tree" << endl;
+		return NULL;
+	}
+
+	if (m_roots.find(node2) == m_roots.end() &&
+	    m_leaves.find(node2) == m_leaves.end())
+	{
+		cerr << "CsgTree::joinPrimitives: ";
+		cerr << "Right node (" << node2->getId() << ") ";
+		if (nodeFromId(node2->getId()) == NULL)
+			cerr << "is not known yet, call addPrimitive" << endl;
+		else
+			cerr << "already belong to a tree" << endl;
+		return NULL;
+	}
+
+
 	operation = new CsgOperation(label, NULL, optype, node1, node2);
 
 	m_id_map[operation->getId()] = operation;
